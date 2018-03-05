@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">UFC Official</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,4 +8,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fighters_Fragment">fightersfragment</string>
+    <string name="mainevents">mainevents</string>
+    <string name="fighterfragment">fighterfragment</string>
+    <string name="newstab">news tab</string>
+    <string name="latestnews">latestnews</string>
+    <string name="livestream">livestream</string>
+    <string name="mediavideos">Media AND videos</string>
+    <string name="media_videos">media_videos</string>
 </resources>

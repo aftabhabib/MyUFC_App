@@ -3,9 +3,7 @@ package com.example.tae.myufc_app;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,14 +13,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.tae.myufc_app.fighters.FightersActivity;
-import com.example.tae.myufc_app.main_events.Tab1;
-import com.example.tae.myufc_app.main_events.Tab2;
-import com.example.tae.myufc_app.main_events.Tab3;
-import com.example.tae.myufc_app.main_events.adapter.PagerAdapter;
+import com.example.tae.myufc_app.fighters.FighterFragment;
+import com.example.tae.myufc_app.latest_news.LatestNewsFragment;
+import com.example.tae.myufc_app.live_stream.LiveStreamFragment;
+import com.example.tae.myufc_app.main_events.EventsTab_Fragment;
+import com.example.tae.myufc_app.main_events.FightsTab_Fragment;
+import com.example.tae.myufc_app.main_events.MainEventsFragment;
+import com.example.tae.myufc_app.main_events.DetailsTab_Fragment;
+import com.example.tae.myufc_app.more_ufc.MoreUFCFragment;
+import com.example.tae.myufc_app.octagon_girls.OctagonGirlsFragment;
+import com.example.tae.myufc_app.octagon_girls.OctagonGirlsTab_Fragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Tab1.OnFragmentInteractionListener,Tab2.OnFragmentInteractionListener,Tab3.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, EventsTab_Fragment.OnFragmentInteractionListener,
+        FightsTab_Fragment.OnFragmentInteractionListener,
+        DetailsTab_Fragment.OnFragmentInteractionListener {
 
     Bundle savedInstanceState;
     private static FragmentManager fragmentManager;
@@ -46,33 +51,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("Events"));
-        tabLayout.addTab(tabLayout.newTab().setText("Fights"));
-        tabLayout.addTab(tabLayout.newTab().setText("News"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
-        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-           @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+        loadMainEventsFragment();
 
     }
 
@@ -115,17 +94,25 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.itm_events) {
+            loadMainEventsFragment();
 
         } else if (id == R.id.itm_latest_news) {
+              loadLatestNewsFragment();
 
         } else if (id == R.id.itm_watch_live) {
+               loadLiveStreamFragment();
 
         } else if (id == R.id.itm_fighters) {
-            loadFightersActivity();
+                loadFighterFragment();
+
+        } else if (id == R.id.itm_buytickets) {
+               buyTicketsIntent();
 
         } else if (id == R.id.itm_media) {
+               loadMoreUFCFragment();
 
         } else if (id == R.id.itm_OctagonGirls) {
+            loadOctagonGirlsFragment();
 
         }
 
@@ -134,17 +121,69 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void loadFightersActivity() {
+    private void loadLatestNewsFragment() {
         if (savedInstanceState == null) {
-           // fragmentManager.beginTransaction()
-              //      .add(R.id.fragmentContainer, new FightersFragment())
-                //    .disallowAddToBackStack()
-                  //  .commit();
-            Intent i = new Intent(MainActivity.this, FightersActivity.class);
-            finish();
-            startActivity(i);
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, new LatestNewsFragment())
+                    .disallowAddToBackStack()
+                    .commit();
         }
     }
+
+    public void loadFighterFragment() {
+         if (savedInstanceState == null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, new FighterFragment())
+                    .disallowAddToBackStack()
+                    .commit();
+        }
+    }
+
+    public void loadMainEventsFragment() {
+        if (savedInstanceState == null) {
+
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, new MainEventsFragment())
+                    .disallowAddToBackStack()
+                    .commit();
+        }
+    }
+
+    public void loadLiveStreamFragment() {
+           if (savedInstanceState == null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, new LiveStreamFragment())
+                    .disallowAddToBackStack()
+                    .commit();
+        }
+    }
+
+    public void loadMoreUFCFragment() {
+           if (savedInstanceState == null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, new MoreUFCFragment())
+                    .disallowAddToBackStack()
+                    .commit();
+        }
+    }
+    public void loadOctagonGirlsFragment() {
+          if (savedInstanceState == null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, new OctagonGirlsFragment())
+                    .disallowAddToBackStack()
+                    .commit();
+        }
+    }
+
+
+    public void buyTicketsIntent()
+    {
+        String url = "http://m.uk.ufc.com/tickets";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+
 
     @Override
     public void onFragmentInteraction(Uri uri) {

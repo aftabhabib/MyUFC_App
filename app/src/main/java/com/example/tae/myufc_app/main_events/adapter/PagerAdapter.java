@@ -4,13 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.tae.myufc_app.main_events.Tab1;
-import com.example.tae.myufc_app.main_events.Tab2;
-import com.example.tae.myufc_app.main_events.Tab3;
+import com.example.tae.myufc_app.main_events.EventsTab_Fragment;
+import com.example.tae.myufc_app.main_events.FightsTab_Fragment;
+import com.example.tae.myufc_app.main_events.DetailsTab_Fragment;
 
-/**
- * Created by Chirag on 30-Jul-17.
- */
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
@@ -29,13 +26,13 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         {
 
             case 0:
-                Tab1 tab1 = new Tab1();
+                EventsTab_Fragment tab1 = new EventsTab_Fragment();
                 return tab1;
             case 1:
-                Tab2 tab2 = new Tab2();
+                FightsTab_Fragment tab2 = new FightsTab_Fragment();
                 return  tab2;
             case 2:
-                Tab3 tab3 = new Tab3();
+                DetailsTab_Fragment tab3 = new DetailsTab_Fragment();
                 return  tab3;
             default:
                 return null;
