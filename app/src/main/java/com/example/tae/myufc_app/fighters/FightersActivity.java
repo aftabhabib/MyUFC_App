@@ -1,14 +1,19 @@
 package com.example.tae.myufc_app.fighters;
 
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.fighters.adapter.PagerAdapter;
 
-public class FightersActivity extends AppCompatActivity {
+public class FightersActivity extends AppCompatActivity
+        implements Tab1.OnFragmentInteractionListener, Tab2.OnFragmentInteractionListener, Tab3.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +47,10 @@ public class FightersActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
