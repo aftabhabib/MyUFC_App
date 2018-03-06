@@ -16,4 +16,11 @@
     <string name="livestream">livestream</string>
     <string name="mediavideos">Media AND videos</string>
     <string name="media_videos">media_videos</string>
+
+    <!--App Message-->
+    <string name="api_retry_error">Please retry!</string>
+    <string name="api_default_error">Something wrong happened!</string>
+    <string name="some_error">Some Error Occurred!</string>
+    <string name="connection_error">Internet connection lost!</string>
+
 </resources>
