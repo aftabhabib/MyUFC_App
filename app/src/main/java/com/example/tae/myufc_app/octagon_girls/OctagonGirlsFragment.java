@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.octagon_girls.adapter.PagerAdapter;
@@ -18,7 +19,7 @@ import com.example.tae.myufc_app.octagon_girls.adapter.PagerAdapter;
  */
 public class OctagonGirlsFragment extends Fragment {
 
-
+    private int id;
     public OctagonGirlsFragment() {
         // Required empty public constructor
     }
@@ -38,6 +39,13 @@ public class OctagonGirlsFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Octagon Girls"));
         tabLayout.addTab(tabLayout.newTab().setText("Details"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+
+     //   if (savedInstanceState!=null) {
+      //      id = getArguments().getInt("id");
+      //      Toast.makeText(getActivity(), "clicked: " + id, Toast.LENGTH_SHORT).show();
+      //  }
+
 
         final ViewPager viewPager = view.findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter(getFragmentManager(), tabLayout.getTabCount());

@@ -1,7 +1,8 @@
 package com.example.tae.myufc_app.data.network;
 
-import com.example.tae.myflavoursapp.data.network.model.CharactersModel;
-import com.example.tae.myflavoursapp.data.network.model.RelatedTopic;
+import com.example.tae.myufc_app.data.network.model.OctagonGirl;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 
@@ -11,6 +12,7 @@ import io.reactivex.Observable;
 
 public interface IApiHelper {
 
-    Observable<CharactersModel> getCharactersList();
+    Observable<List<OctagonGirl>> getOctagonGirl();
 
+   // Observable<OctagonGirl> getOctagonGirlDetail(int id);
 }

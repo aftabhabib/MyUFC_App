@@ -1,17 +1,21 @@
 package com.example.tae.myufc_app;
 
+import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.tae.myufc_app.fighters.FighterFragment;
 import com.example.tae.myufc_app.latest_news.LatestNewsFragment;
@@ -21,6 +25,7 @@ import com.example.tae.myufc_app.main_events.FightsTab_Fragment;
 import com.example.tae.myufc_app.main_events.MainEventsFragment;
 import com.example.tae.myufc_app.main_events.DetailsTab_Fragment;
 import com.example.tae.myufc_app.more_ufc.MoreUFCFragment;
+import com.example.tae.myufc_app.octagon_girls.OctagonGirlsDetailsTab_Fragment;
 import com.example.tae.myufc_app.octagon_girls.OctagonGirlsFragment;
 import com.example.tae.myufc_app.octagon_girls.OctagonGirlsTab_Fragment;
 
@@ -97,19 +102,19 @@ public class MainActivity extends AppCompatActivity
             loadMainEventsFragment();
 
         } else if (id == R.id.itm_latest_news) {
-              loadLatestNewsFragment();
+            loadLatestNewsFragment();
 
         } else if (id == R.id.itm_watch_live) {
-               loadLiveStreamFragment();
+            loadLiveStreamFragment();
 
         } else if (id == R.id.itm_fighters) {
-                loadFighterFragment();
+            loadFighterFragment();
 
         } else if (id == R.id.itm_buytickets) {
-               buyTicketsIntent();
+            buyTicketsIntent();
 
         } else if (id == R.id.itm_media) {
-               loadMoreUFCFragment();
+            loadMoreUFCFragment();
 
         } else if (id == R.id.itm_OctagonGirls) {
             loadOctagonGirlsFragment();
@@ -131,7 +136,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void loadFighterFragment() {
-         if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new FighterFragment())
                     .disallowAddToBackStack()
@@ -150,7 +155,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void loadLiveStreamFragment() {
-           if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new LiveStreamFragment())
                     .disallowAddToBackStack()
@@ -159,15 +164,16 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void loadMoreUFCFragment() {
-           if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new MoreUFCFragment())
                     .disallowAddToBackStack()
                     .commit();
         }
     }
+
     public void loadOctagonGirlsFragment() {
-          if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new OctagonGirlsFragment())
                     .disallowAddToBackStack()
@@ -176,8 +182,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void buyTicketsIntent()
-    {
+    public void buyTicketsIntent() {
         String url = "http://m.uk.ufc.com/tickets";
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
@@ -189,4 +194,22 @@ public class MainActivity extends AppCompatActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    public static void OctagonGirlID(int id, Context context) {
+
+        //Toast.makeText(context, "clicked: " + id, Toast.LENGTH_SHORT).show();
+
+        OctagonGirlsFragment octagonGirlsFragment = new OctagonGirlsFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", id);
+
+        octagonGirlsFragment.setArguments(bundle);
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, octagonGirlsFragment)
+                .addToBackStack(null)
+                .commit();
+
+          }
 }

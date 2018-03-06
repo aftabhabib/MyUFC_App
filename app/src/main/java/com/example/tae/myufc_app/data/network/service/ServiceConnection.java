@@ -2,13 +2,10 @@ package com.example.tae.myufc_app.data.network.service;
 
 import android.util.Log;
 
-import com.example.tae.myflavoursapp.BuildConfig;
-import com.example.tae.myflavoursapp.MyApp;
+import com.example.tae.myufc_app.MyApp;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.io.IOException;
-
-
 
 import okhttp3.Cache;
 import okhttp3.Interceptor;
@@ -48,11 +45,11 @@ public class ServiceConnection {
 
 
                    if(response.networkResponse()!=null){
-                       Log.i("cache", "Network response");
+                       Log.i("cacheX", "Network response");
                    }
 
                    if(response.cacheControl()!=null){
-                       Log.i("cache", "Cached response");
+                       Log.i("cacheX", "Cached response");
                    }
                    return response;
                })
@@ -63,7 +60,7 @@ public class ServiceConnection {
 
 
        retrofit= new Retrofit.Builder()
-               .baseUrl(BuildConfig.BASE_URL)
+               .baseUrl(ApiList.Base_URL)
                .client(client)
                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) //Allows to inflate the recyclerview adapter
                .addConverterFactory(GsonConverterFactory.create())// adds gson converter

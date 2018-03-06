@@ -1,9 +1,9 @@
 package com.example.tae.myufc_app.data.network;
 
-import android.os.MessageQueue;
 
-import com.example.tae.myflavoursapp.data.network.model.CharactersModel;
-import com.example.tae.myflavoursapp.data.network.model.RelatedTopic;
+import com.example.tae.myufc_app.data.network.model.OctagonGirl;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 
@@ -11,16 +11,21 @@ import io.reactivex.Observable;
  * Created by TAE on 13-Feb-18.
  */
 
-public class AppDataManager implements DataManager {
+public class AppDataManager implements DataManager{
 
     private IApiHelper iApiHelper;
 
+
     public AppDataManager() {
-        iApiHelper = new AppApiHelper();   /** the class that implements the interface before  **/
+        iApiHelper = new AppApiHelper();
     }
 
+  //  @Override
+ //   public Observable<OctagonGirl> getOctagonGirlDetail(int id){
+  //      return iApiHelper.getOctagonGirlDetail(id);
+  //  }
     @Override
-    public Observable<CharactersModel> getCharactersList() {
-        return iApiHelper.getCharactersList();
+    public Observable<List<OctagonGirl>> getOctagonGirl() {
+        return iApiHelper.getOctagonGirl();
     }
 }
