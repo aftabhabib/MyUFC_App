@@ -1,10 +1,13 @@
 package com.example.tae.myufc_app.octagon_girls;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,6 +25,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 import java.util.function.Consumer;
 
+import butterknife.OnClick;
+
 import static android.content.Context.MODE_PRIVATE;
 
 /**
@@ -34,6 +39,7 @@ public class OctagonGirlTab_Adapter extends RecyclerView.Adapter<OctagonGirlTab_
     private int row;
     private List<OctagonGirl> result;
 
+
     public OctagonGirlTab_Adapter(Context applicationContext, List<OctagonGirl> result, int row) {
         this.applicationContext = applicationContext;
         this.row = row;
@@ -44,6 +50,7 @@ public class OctagonGirlTab_Adapter extends RecyclerView.Adapter<OctagonGirlTab_
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
            return new MyViewHolder((LayoutInflater.from(parent.getContext()).inflate(row,parent,false)));
     }
+
 
 
     @Override
@@ -72,7 +79,7 @@ public class OctagonGirlTab_Adapter extends RecyclerView.Adapter<OctagonGirlTab_
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tName, tDateOB, tDescShort;
+        private TextView tName;
         private ImageView tImgView;
 
         public MyViewHolder(View itemView) {
@@ -86,18 +93,31 @@ public class OctagonGirlTab_Adapter extends RecyclerView.Adapter<OctagonGirlTab_
                public void onClick(View view) {
                     int pos = getAdapterPosition();
                     int id = result.get(pos).getId();
-                    //GET IN BUNDLE ETC
+                    String name = (" ABOUT  " + result.get(pos).getFirstName() + " " + result.get(pos).getLastName());
+                    String quote = result.get(pos).getQuote();
+                    String food = result.get(pos).getFavoriteFoods();
+                    String height = (result.get(pos).getHeight().toString() + " cm");
+                    String weight = (result.get(pos).getWeight().toString() + " lb");
+                    String website = result.get(pos).getWebsiteurl().toString();
+                    String img = result.get(pos).getLargeBodyPicture();
+                    String youtube = result.get(pos).getYoutubeChannelurl();
 
                     //check if item still exits
                     if(pos != RecyclerView.NO_POSITION)
                     {
                         OctagonGirl clickedDataItem = result.get(pos);
-                        //MainActivity.OctagonGirlID(id, applicationContext);
-//                        SharedPreferences sharedPreference =
 
-                        SharedPreferences.Editor editor = applicationContext.getSharedPreferences("myPrefs", Context.MODE_PRIVATE).edit();
-                        editor.putInt("id", id);
-                        editor.apply();
+                        SharedPreferences sharedPref = applicationContext.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("name", name);
+                        editor.putString("quote", quote);
+                        editor.putString("food", food);
+                        editor.putString("height", height);
+                        editor.putString("weight", weight);
+                        editor.putString("website", website);
+                        editor.putString("img", img);
+                        editor.putString("youtube", youtube);
+                        editor.commit();
 
                     }
                 }

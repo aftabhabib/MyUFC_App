@@ -1,9 +1,10 @@
 package com.example.tae.myufc_app.data.network;
 
+import com.example.tae.myufc_app.data.network.model.OctagonGirl;
+import com.example.tae.myufc_app.data.network.service.IRequestInterface;
+import com.example.tae.myufc_app.data.network.service.ServiceConnection;
 
-import com.example.tae.myflavoursapp.data.network.model.CharactersModel;
-import com.example.tae.myflavoursapp.data.network.service.IRequestInterface;
-import com.example.tae.myflavoursapp.data.network.service.ServiceConnection;
+import java.util.List;
 
 import io.reactivex.Observable;
 
@@ -11,16 +12,23 @@ import io.reactivex.Observable;
  * Created by TAE on 13-Feb-18.
  */
 
-public class AppApiHelper implements IApiHelper {
+public class AppApiHelper implements IApiHelper{
 
     private IRequestInterface iRequestInterface;
 
-    public AppApiHelper(){
+
+    public AppApiHelper() {
         iRequestInterface = ServiceConnection.getConnection();
     }
 
+
     @Override
-    public Observable<CharactersModel> getCharactersList() {
-        return iRequestInterface.getCharacters();
+    public Observable<List<OctagonGirl>> getOctagonGirl() {
+        return iRequestInterface.getOctagonGirl();
     }
+
+    //@Override
+  //  public Observable<OctagonGirl> getOctagonGirlDetail(int id) {
+   //     return iRequestInterface.getOctagonGirlDetail(id);
+  //  }
 }

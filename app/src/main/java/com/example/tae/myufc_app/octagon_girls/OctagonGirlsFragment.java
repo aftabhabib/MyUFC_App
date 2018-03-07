@@ -41,12 +41,6 @@ public class OctagonGirlsFragment extends Fragment {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
-     //   if (savedInstanceState!=null) {
-      //      id = getArguments().getInt("id");
-      //      Toast.makeText(getActivity(), "clicked: " + id, Toast.LENGTH_SHORT).show();
-      //  }
-
-
         final ViewPager viewPager = view.findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter(getFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
@@ -56,6 +50,7 @@ public class OctagonGirlsFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+
             }
 
             @Override

@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity
 
         fragmentManager = getSupportFragmentManager();
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -100,25 +99,28 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.itm_events) {
             loadMainEventsFragment();
+        }
 
-        } else if (id == R.id.itm_latest_news) {
+        if (id == R.id.itm_latest_news) {
             loadLatestNewsFragment();
-
-        } else if (id == R.id.itm_watch_live) {
+        }
+        if (id == R.id.itm_watch_live) {
             loadLiveStreamFragment();
-
-        } else if (id == R.id.itm_fighters) {
+        }
+        if (id == R.id.itm_fighters) {
             loadFighterFragment();
+        }
 
-        } else if (id == R.id.itm_buytickets) {
+        if (id == R.id.itm_buytickets) {
             buyTicketsIntent();
+        }
 
-        } else if (id == R.id.itm_media) {
+        if (id == R.id.itm_media) {
             loadMoreUFCFragment();
+        }
 
-        } else if (id == R.id.itm_OctagonGirls) {
+        if (id == R.id.itm_OctagonGirls) {
             loadOctagonGirlsFragment();
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -136,7 +138,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void loadFighterFragment() {
-        if (savedInstanceState == null) {
+        if (savedInstanceState != null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new FighterFragment())
                     .disallowAddToBackStack()
@@ -177,6 +179,7 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new OctagonGirlsFragment())
                     .disallowAddToBackStack()
+                    //.addToBackStack()
                     .commit();
         }
     }
