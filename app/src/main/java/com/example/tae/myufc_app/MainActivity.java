@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void loadFighterFragment() {
-        if (savedInstanceState != null) {
+        if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new FighterFragment())
                     .disallowAddToBackStack()
