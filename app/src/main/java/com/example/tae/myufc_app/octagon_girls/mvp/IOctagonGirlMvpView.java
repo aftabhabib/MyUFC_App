@@ -1,4 +1,4 @@
-package com.example.tae.myufc_app.octagon_girls;
+package com.example.tae.myufc_app.octagon_girls.mvp;
 
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
 import com.example.tae.myufc_app.ui.base.MvpView;

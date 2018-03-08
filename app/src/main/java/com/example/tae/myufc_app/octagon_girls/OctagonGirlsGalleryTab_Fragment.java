@@ -25,13 +25,13 @@ import io.reactivex.disposables.CompositeDisposable;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OctagonGirlsTab_Fragment extends BaseFragment
-implements IOctagonGirlMvpView {
+public class OctagonGirlsGalleryTab_Fragment extends BaseFragment
+        implements IOctagonGirlMvpView {
 
     private RecyclerView recyclerView;
-    private OctagonGirlImpl<OctagonGirlsTab_Fragment> octagonGirlsTabPresenter;
+    private OctagonGirlImpl<OctagonGirlsGalleryTab_Fragment> octagonGirlDetailFragment;
 
-    public OctagonGirlsTab_Fragment() {
+    public OctagonGirlsGalleryTab_Fragment() {
         // Required empty public constructor
     }
 
@@ -40,13 +40,13 @@ implements IOctagonGirlMvpView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        octagonGirlsTabPresenter = new OctagonGirlImpl<>(new AppDataManager(),
+        octagonGirlDetailFragment = new OctagonGirlImpl<>(new AppDataManager(),
                 new AppSchedulerProvider(), new CompositeDisposable());
 
-        octagonGirlsTabPresenter.onAttach(this);
+        octagonGirlDetailFragment.onAttach(this);
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_octagon_girls_tab_, container, false);
+        return inflater.inflate(R.layout.fragment_octagon_girls_gallery_tab_, container, false);
     }
 
     @Override
@@ -56,7 +56,7 @@ implements IOctagonGirlMvpView {
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        octagonGirlsTabPresenter.loadOctagonGirls();
+        octagonGirlDetailFragment.loadOctagonGirlGallery();
     }
 
     @Override
@@ -66,9 +66,8 @@ implements IOctagonGirlMvpView {
 
     @Override
     public void onFetchDataSuccess(List<OctagonGirl> octagonGirl) {
+        recyclerView.setAdapter(new OctagonGirlGalleryTab_Adapter(getActivity().getApplicationContext(), octagonGirl, R.layout.octagon_girls_gallery_row));
 
-     //  Toast.makeText(getActivity(), "girls" + octagonGirl.get(0).get, Toast.LENGTH_SHORT).show();
-        recyclerView.setAdapter(new OctagonGirlTab_Adapter(getActivity().getApplicationContext(), octagonGirl, R.layout.octagon_girls_row));
     }
 
     @Override

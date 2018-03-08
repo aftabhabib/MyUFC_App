@@ -1,15 +1,15 @@
 package com.example.tae.myufc_app;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -25,14 +25,11 @@ import com.example.tae.myufc_app.main_events.FightsTab_Fragment;
 import com.example.tae.myufc_app.main_events.MainEventsFragment;
 import com.example.tae.myufc_app.main_events.DetailsTab_Fragment;
 import com.example.tae.myufc_app.more_ufc.MoreUFCFragment;
-import com.example.tae.myufc_app.octagon_girls.OctagonGirlsDetailsTab_Fragment;
+import com.example.tae.myufc_app.octagon_girls.OctagonGirlsDetails_Fragment;
 import com.example.tae.myufc_app.octagon_girls.OctagonGirlsFragment;
-import com.example.tae.myufc_app.octagon_girls.OctagonGirlsTab_Fragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, EventsTab_Fragment.OnFragmentInteractionListener,
-        FightsTab_Fragment.OnFragmentInteractionListener,
-        DetailsTab_Fragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     Bundle savedInstanceState;
     private static FragmentManager fragmentManager;
@@ -45,6 +42,10 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         fragmentManager = getSupportFragmentManager();
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        }
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            this.finish();
         } else {
             super.onBackPressed();
         }
@@ -76,20 +80,24 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case android.R.id.home:
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
+                }
         return super.onOptionsItemSelected(item);
     }
+
+   // @Override
+  //  public boolean onOptionsItemSelected(MenuItem item) {
+    //    switch (item.getItemId()) {
+    //        case R.id.action_settings:
+    //          Toast.makeText(getApplication(), "efwf", Toast.LENGTH_SHORT).show();
+    //         finish();
+    //            return true;
+    //    }
+    //    return super.onOptionsItemSelected(item);
+   // }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -129,59 +137,66 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void loadLatestNewsFragment() {
-        if (savedInstanceState == null) {
+      //  if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new LatestNewsFragment())
-                    .disallowAddToBackStack()
+                    .addToBackStack(null)
                     .commit();
-        }
+      //  }
     }
 
     public void loadFighterFragment() {
-        if (savedInstanceState == null) {
+     //   if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new FighterFragment())
                     .disallowAddToBackStack()
                     .commit();
-        }
+       // }
     }
 
     public void loadMainEventsFragment() {
-        if (savedInstanceState == null) {
+    //    if (savedInstanceState == null) {
 
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new MainEventsFragment())
-                    .disallowAddToBackStack()
+                    .addToBackStack(null)
                     .commit();
-        }
+       // }
     }
 
     public void loadLiveStreamFragment() {
-        if (savedInstanceState == null) {
+      //  if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new LiveStreamFragment())
-                    .disallowAddToBackStack()
+                    .addToBackStack(null)
                     .commit();
-        }
+       // }
     }
 
     public void loadMoreUFCFragment() {
-        if (savedInstanceState == null) {
+      //  if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new MoreUFCFragment())
-                    .disallowAddToBackStack()
+                    .addToBackStack(null)
                     .commit();
-        }
+       // }
     }
 
     public void loadOctagonGirlsFragment() {
-        if (savedInstanceState == null) {
+       // if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new OctagonGirlsFragment())
-                    .disallowAddToBackStack()
+                    .addToBackStack(null)
                     //.addToBackStack()
                     .commit();
-        }
+        //}
+    }
+
+    public static void loadOctagonGirlsDetailsFragment() {
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, new OctagonGirlsDetails_Fragment())
+                .addToBackStack(null)
+                .commit();
     }
 
 
@@ -193,26 +208,4 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
-    public static void OctagonGirlID(int id, Context context) {
-
-        //Toast.makeText(context, "clicked: " + id, Toast.LENGTH_SHORT).show();
-
-        OctagonGirlsFragment octagonGirlsFragment = new OctagonGirlsFragment();
-
-        Bundle bundle = new Bundle();
-        bundle.putInt("id", id);
-
-        octagonGirlsFragment.setArguments(bundle);
-
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, octagonGirlsFragment)
-                .addToBackStack(null)
-                .commit();
-
-          }
 }

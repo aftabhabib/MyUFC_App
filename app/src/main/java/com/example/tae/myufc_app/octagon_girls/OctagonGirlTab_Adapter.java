@@ -92,7 +92,7 @@ public class OctagonGirlTab_Adapter extends RecyclerView.Adapter<OctagonGirlTab_
                 @Override
                public void onClick(View view) {
                     int pos = getAdapterPosition();
-                    int id = result.get(pos).getId();
+                    // int id = result.get(pos).getId();
                     String name = (" ABOUT  " + result.get(pos).getFirstName() + " " + result.get(pos).getLastName());
                     String quote = result.get(pos).getQuote();
                     String food = result.get(pos).getFavoriteFoods();
@@ -102,12 +102,11 @@ public class OctagonGirlTab_Adapter extends RecyclerView.Adapter<OctagonGirlTab_
                     String img = result.get(pos).getLargeBodyPicture();
                     String youtube = result.get(pos).getYoutubeChannelurl();
 
+
                     //check if item still exits
                     if(pos != RecyclerView.NO_POSITION)
                     {
-                        OctagonGirl clickedDataItem = result.get(pos);
-
-                        SharedPreferences sharedPref = applicationContext.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+                        SharedPreferences sharedPref = applicationContext.getSharedPreferences("myPrefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putString("name", name);
                         editor.putString("quote", quote);
@@ -118,6 +117,8 @@ public class OctagonGirlTab_Adapter extends RecyclerView.Adapter<OctagonGirlTab_
                         editor.putString("img", img);
                         editor.putString("youtube", youtube);
                         editor.commit();
+
+                        MainActivity.loadOctagonGirlsDetailsFragment();
 
                     }
                 }

@@ -1,6 +1,7 @@
 package com.example.tae.myufc_app.data.network;
 
 
+import com.example.tae.myufc_app.data.network.model.Medium;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public class AppDataManager implements DataManager{
     public Observable<List<OctagonGirl>> getOctagonGirl() {
         return iApiHelper.getOctagonGirl();
     }
+
+    public Observable<List<Medium>> getMedia() { return iApiHelper.getMedia();}
 }

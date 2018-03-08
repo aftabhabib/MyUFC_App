@@ -37,7 +37,7 @@ public class OctagonGirlsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TabLayout tabLayout = view.findViewById(R.id.tablayout);
         tabLayout.addTab(tabLayout.newTab().setText("Octagon Girls"));
-        tabLayout.addTab(tabLayout.newTab().setText("Details"));
+        tabLayout.addTab(tabLayout.newTab().setText("Gallery"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
