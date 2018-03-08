@@ -1,12 +1,10 @@
 package com.example.tae.myufc_app;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -15,15 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.tae.myufc_app.fighters.FighterFragment;
 import com.example.tae.myufc_app.latest_news.LatestNewsFragment;
-import com.example.tae.myufc_app.live_stream.LiveStreamFragment;
-import com.example.tae.myufc_app.main_events.EventsTab_Fragment;
-import com.example.tae.myufc_app.main_events.FightsTab_Fragment;
+import com.example.tae.myufc_app.live_stream.LiveStream_Fragment;
 import com.example.tae.myufc_app.main_events.MainEventsFragment;
-import com.example.tae.myufc_app.main_events.DetailsTab_Fragment;
 import com.example.tae.myufc_app.more_ufc.MoreUFCFragment;
 import com.example.tae.myufc_app.octagon_girls.OctagonGirlsDetails_Fragment;
 import com.example.tae.myufc_app.octagon_girls.OctagonGirlsFragment;
@@ -156,12 +150,17 @@ public class MainActivity extends AppCompatActivity
 
     public void loadLiveStreamFragment() {
       //  if (savedInstanceState == null) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainer, new LiveStreamFragment())
+          fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, new LiveStream_Fragment())
                     .addToBackStack(null)
                     .commit();
-       // }
-    }
+        }
+
+     //   String url = "http://ufc-data-api.ufc.com/api/v3/iphone/live";
+       // Intent i = new Intent(Intent.ACTION_VIEW);
+        //i.setData(Uri.parse(url));
+        //startActivity(i);
+   // }
 
     public void loadMoreUFCFragment() {
       //  if (savedInstanceState == null) {
