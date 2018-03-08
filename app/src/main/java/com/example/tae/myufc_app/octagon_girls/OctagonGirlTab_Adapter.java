@@ -56,7 +56,7 @@ public class OctagonGirlTab_Adapter extends RecyclerView.Adapter<OctagonGirlTab_
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        holder.tName.setText(" " + result.get(position).getFirstName() + "\n   " + result.get(position).getLastName() + " ");
+        holder.tName.setText("  " + result.get(position).getFirstName() + "\n  " + result.get(position).getLastName() + "  ");
         Context context = holder.tImgView.getContext();
 
         if (result.get(position).getLargeProfilePicture() != null) {

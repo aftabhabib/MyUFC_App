@@ -1,6 +1,7 @@
 package com.example.tae.myufc_app.data.network.service;
 
 
+import com.example.tae.myufc_app.data.network.model.Medium;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
 
 import java.util.List;
@@ -22,6 +23,9 @@ public interface IRequestInterface {
      */
     @GET(ApiList.OCTAGON_GIRLS)
     Observable<List<OctagonGirl>> getOctagonGirl();
+
+    @GET(ApiList.MEDIA_URL)
+    Observable<List<Medium>> getMedia();
 
    // @GET(ApiList.OCTAGON_GIRL_DETAIL)
   //  Observable<OctagonGirl> getOctagonGirlDetail(@Path("id") int id);

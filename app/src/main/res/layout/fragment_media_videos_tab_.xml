@@ -4,11 +4,13 @@
     android:layout_height="match_parent"
     android:paddingTop="50dp"
     tools:context="com.example.tae.myufc_app.more_ufc.MediaVideosTab_Fragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/media_videos" />
-
+        android:background="@android:color/white" />
+</GridLayout>
 </FrameLayout>
