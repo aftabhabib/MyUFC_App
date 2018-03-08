@@ -1,7 +1,9 @@
 package com.example.tae.myufc_app.more_ufc;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.tae.myufc_app.MainActivity;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.model.Medium;
 import com.squareup.picasso.Picasso;
@@ -78,21 +81,24 @@ public class MediaTab_Adapter extends RecyclerView.Adapter<MediaTab_Adapter.MyVi
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
 
-                    String title = (result.get(pos).getTitle());
-                    String urlStream = (result.get(pos).getMobileStreamUrl());
+                    String urlStream = (result.get(pos).getMobileVideoUrl());
 
                     if(pos != RecyclerView.NO_POSITION)
                     {
-                        SharedPreferences sharedPref = applicationContext.getSharedPreferences("myPrefs", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPref.edit();
-                        editor.putString("title", title);
-                        editor.putString("urlStream", urlStream);
-                        editor.commit();
+                        //SharedPreferences sharedPref = applicationContext.getSharedPreferences("myPrefs", MODE_PRIVATE);
+                       // SharedPreferences.Editor editor = sharedPref.edit();
+                        //editor.putString("urlStream", urlStream);
+                      //  editor.commit();
 
-                       // MainActivity.playMediaVideo(title, urlStream, desc, thumb);
+                        //MainActivity.playMediaVideo(urlStream);
 
+                        String mediaUrl = urlStream;
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(mediaUrl));
+                        applicationContext.startActivity(i);
                     }
-                }
+                    }
+
             });
         }
     }

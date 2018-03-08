@@ -88,16 +88,6 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-   // @Override
-  //  public boolean onOptionsItemSelected(MenuItem item) {
-    //    switch (item.getItemId()) {
-    //        case R.id.action_settings:
-    //          Toast.makeText(getApplication(), "efwf", Toast.LENGTH_SHORT).show();
-    //         finish();
-    //            return true;
-    //    }
-    //    return super.onOptionsItemSelected(item);
-   // }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
