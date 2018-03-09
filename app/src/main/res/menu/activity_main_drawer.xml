@@ -7,11 +7,11 @@
         <item
             android:id="@+id/itm_events"
             android:icon="@drawable/ic_event_black_24dp"
-            android:title="Main Events" />
+            android:title="Main Events &amp; News" />
         <item
-            android:id="@+id/itm_latest_news"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Latest News" />
+            android:id="@+id/itm_media"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Media and Videos"/>
         <item
             android:id="@+id/itm_watch_live"
             android:icon="@drawable/ic_live_tv_black_24dp"
@@ -28,10 +28,6 @@
                 android:id="@+id/itm_buytickets"
                 android:icon="@drawable/ic_style_black_24dp"
                 android:title="Buy Tickets" />
-            <item
-                android:id="@+id/itm_media"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="Media and Videos" />
 
             <item
                 android:id="@+id/itm_OctagonGirls"

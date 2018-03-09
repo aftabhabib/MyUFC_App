@@ -3,8 +3,10 @@ package com.example.tae.myufc_app;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -15,8 +17,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.tae.myufc_app.fighters.FighterFragment;
-import com.example.tae.myufc_app.latest_news.LatestNewsFragment;
-import com.example.tae.myufc_app.live_stream.LiveStream_Fragment;
 import com.example.tae.myufc_app.main_events.MainEventsFragment;
 import com.example.tae.myufc_app.more_ufc.MoreUFCFragment;
 import com.example.tae.myufc_app.octagon_girls.OctagonGirlsDetails_Fragment;
@@ -25,7 +25,7 @@ import com.example.tae.myufc_app.octagon_girls.OctagonGirlsFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    Bundle savedInstanceState;
+    static Bundle savedInstanceState;
     private static FragmentManager fragmentManager;
 
     @Override
@@ -60,12 +60,18 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
-      //  if (getFragmentManager().getBackStackEntryCount() == 0) {
-      //      this.finish();
-      //  } else {
-      //      super.onBackPressed();
-      //  }
+        else
+            {
+            super.onBackPressed();
+        }
+            if (getFragmentManager().getBackStackEntryCount() == 0) {
+                super.onBackPressed();
+            }
+            else {
+                getFragmentManager().popBackStack();
+            }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,9 +99,6 @@ public class MainActivity extends AppCompatActivity
             loadMainEventsFragment();
         }
 
-        if (id == R.id.itm_latest_news) {
-            loadLatestNewsFragment();
-        }
         if (id == R.id.itm_watch_live) {
             loadLiveStreamFragment();
         }
@@ -115,18 +118,22 @@ public class MainActivity extends AppCompatActivity
             loadOctagonGirlsFragment();
         }
 
+        Fragment switchTo = null;
+
+        if (switchTo!=null)
+        {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragmentContainer, switchTo);
+            for (int i= 0; i< getSupportFragmentManager().getBackStackEntryCount(); ++i)
+            {
+                getSupportFragmentManager().popBackStackImmediate();
+            }
+            ft.commit();
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    private void loadLatestNewsFragment() {
-      //  if (savedInstanceState == null) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainer, new LatestNewsFragment())
-                    .addToBackStack(null)
-                    .commit();
-      //  }
     }
 
     public void loadFighterFragment() {
@@ -149,45 +156,44 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void loadLiveStreamFragment() {
-      //  if (savedInstanceState == null) {
-          fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainer, new LiveStream_Fragment())
-                    .addToBackStack(null)
-                    .commit();
-        }
+        if (savedInstanceState == null) {
 
-     //   String url = "http://ufc-data-api.ufc.com/api/v3/iphone/live";
-       // Intent i = new Intent(Intent.ACTION_VIEW);
-        //i.setData(Uri.parse(url));
-        //startActivity(i);
-   // }
+            String url = "http://ufc-data-api.ufc.com/api/v3/iphone/live";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+    }
 
     public void loadMoreUFCFragment() {
-      //  if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new MoreUFCFragment())
                     .addToBackStack(null)
                     .commit();
-       // }
+        }
     }
 
     public void loadOctagonGirlsFragment() {
-       // if (savedInstanceState == null) {
+
+        if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new OctagonGirlsFragment())
-                    .addToBackStack(null)
-                    //.addToBackStack()
+                    .addToBackStack("octgirlsfrag")
                     .commit();
-        //}
+        }
     }
 
     public static void loadOctagonGirlsDetailsFragment() {
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, new OctagonGirlsDetails_Fragment())
-                .addToBackStack(null)
-                .commit();
-    }
 
+        if (savedInstanceState == null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, new OctagonGirlsDetails_Fragment())
+                    .addToBackStack("octgirlsdetails")
+                    .commit();
+        }
+
+    }
 
     public void buyTicketsIntent() {
         String url = "http://m.uk.ufc.com/tickets";

@@ -1,5 +1,6 @@
 package com.example.tae.myufc_app.data.network;
 
+import com.example.tae.myufc_app.data.network.model.Events;
 import com.example.tae.myufc_app.data.network.model.Medium;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
 import com.example.tae.myufc_app.data.network.service.IRequestInterface;
@@ -31,6 +32,11 @@ public class AppApiHelper implements IApiHelper{
     public Observable<List<Medium>> getMedia()
     {
         return iRequestInterface.getMedia();
+    }
+
+    public Observable<List<Events>> getEvents()
+    {
+        return iRequestInterface.getEvents();
     }
 
     //@Override

@@ -62,6 +62,7 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
     }
 
 
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

@@ -37,7 +37,7 @@ public class MainEventsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         TabLayout tabLayout = view.findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("Events"));
+        tabLayout.addTab(tabLayout.newTab().setText("Latest Events"));
         tabLayout.addTab(tabLayout.newTab().setText("Fights"));
         tabLayout.addTab(tabLayout.newTab().setText("News"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
