@@ -1,4 +1,4 @@
-package com.example.tae.myufc_app.octagon_girls;
+package com.example.tae.myufc_app.octagon_girls.octagon_girls_tab;
 
 
 import android.os.Bundle;

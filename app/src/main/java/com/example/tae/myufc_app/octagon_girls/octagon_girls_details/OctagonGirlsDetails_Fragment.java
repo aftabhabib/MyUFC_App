@@ -1,34 +1,20 @@
-package com.example.tae.myufc_app.octagon_girls;
+package com.example.tae.myufc_app.octagon_girls.octagon_girls_details;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tae.myufc_app.R;
-import com.example.tae.myufc_app.data.network.AppDataManager;
-import com.example.tae.myufc_app.data.network.model.OctagonGirl;
 import com.example.tae.myufc_app.ui.base.BaseFragment;
-import com.example.tae.myufc_app.ui.utils.NetworkUtils;
-import com.example.tae.myufc_app.ui.utils.rx.AppSchedulerProvider;
 import com.squareup.picasso.Picasso;
-
-import java.util.List;
-
-import io.reactivex.disposables.CompositeDisposable;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -55,7 +41,7 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
         //if (savedInstanceState == null) {
        // getChanges();
         //}
-        setHasOptionsMenu(true);
+      //  setHasOptionsMenu(true);
 
         sharedPref = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
         return inflater.inflate(R.layout.fragment_octagon_girls_details_tab_, container, false);

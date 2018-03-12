@@ -17,10 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.tae.myufc_app.fighters.FighterFragment;
+import com.example.tae.myufc_app.main_events.event_details.EventDetailsFragment;
 import com.example.tae.myufc_app.main_events.MainEventsFragment;
 import com.example.tae.myufc_app.more_ufc.MoreUFCFragment;
-import com.example.tae.myufc_app.octagon_girls.OctagonGirlsDetails_Fragment;
-import com.example.tae.myufc_app.octagon_girls.OctagonGirlsFragment;
+import com.example.tae.myufc_app.octagon_girls.octagon_girls_details.OctagonGirlsDetails_Fragment;
+import com.example.tae.myufc_app.octagon_girls.octagon_girls_tab.OctagonGirlsFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -165,13 +166,13 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void loadMoreUFCFragment() {
-        if (savedInstanceState == null) {
+    public static void loadMoreUFCFragment() {
+       // if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new MoreUFCFragment())
                     .addToBackStack(null)
                     .commit();
-        }
+       // }
     }
 
     public void loadOctagonGirlsFragment() {
@@ -184,18 +185,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public static void loadOctagonGirlsDetailsFragment() {
-
-        if (savedInstanceState == null) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainer, new OctagonGirlsDetails_Fragment())
-                    .addToBackStack("octgirlsdetails")
-                    .commit();
-        }
-
-    }
-
-    public void buyTicketsIntent() {
+      public void buyTicketsIntent() {
         String url = "http://m.uk.ufc.com/tickets";
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));

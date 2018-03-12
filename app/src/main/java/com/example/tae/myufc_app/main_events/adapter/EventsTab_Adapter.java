@@ -1,8 +1,8 @@
-package com.example.tae.myufc_app.main_events;
+package com.example.tae.myufc_app.main_events.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Icon;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tae.myufc_app.MainActivity;
+import com.example.tae.myufc_app.MyApp;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.model.Events;
+import com.example.tae.myufc_app.main_events.event_details.Event_Details_Main;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -100,12 +101,15 @@ public class EventsTab_Adapter extends RecyclerView.Adapter<EventsTab_Adapter.My
 
 
                     if (pos != RecyclerView.NO_POSITION) {
-                        SharedPreferences sharedPref = applicationContext.getSharedPreferences("myPrefs", MODE_PRIVATE);
+                        SharedPreferences sharedPref = applicationContext.getSharedPreferences("EventDetails", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putInt("event_id", id);
                         editor.commit();
 
-                        //MainActivity.loadEventDetailsFragment();
+
+                        Intent intent = new Intent(MyApp.getInstance().getAppContext(), Event_Details_Main.class);
+                        MyApp.getInstance().getAppContext().startActivity(intent);
+
                     }
                 }
             });

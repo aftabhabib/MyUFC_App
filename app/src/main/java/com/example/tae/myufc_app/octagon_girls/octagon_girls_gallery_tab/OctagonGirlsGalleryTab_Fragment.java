@@ -1,4 +1,4 @@
-package com.example.tae.myufc_app.octagon_girls;
+package com.example.tae.myufc_app.octagon_girls.octagon_girls_gallery_tab;
 
 
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.AppDataManager;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
+import com.example.tae.myufc_app.octagon_girls.adapter.OctagonGirlGalleryTab_Adapter;
 import com.example.tae.myufc_app.octagon_girls.mvp.IOctagonGirlMvpView;
 import com.example.tae.myufc_app.octagon_girls.mvp.OctagonGirlImpl;
 import com.example.tae.myufc_app.ui.base.BaseFragment;

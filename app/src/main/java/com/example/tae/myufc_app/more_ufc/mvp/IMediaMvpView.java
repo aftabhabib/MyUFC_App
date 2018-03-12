@@ -16,4 +16,9 @@ public interface IMediaMvpView extends MvpView {
     void onFetchDataSuccess(List<Medium> media);
     void onFetchDataError(String error);
 
+  //  @Override
+  //  boolean isNetworkConnected();
+
+  //  @Override
+  //  void onError(int resId);
 }

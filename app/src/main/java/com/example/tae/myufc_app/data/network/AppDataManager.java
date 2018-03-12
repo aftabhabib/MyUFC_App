@@ -2,6 +2,7 @@ package com.example.tae.myufc_app.data.network;
 
 
 import com.example.tae.myufc_app.data.network.model.Events;
+import com.example.tae.myufc_app.data.network.model.EventsDetails;
 import com.example.tae.myufc_app.data.network.model.Medium;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
 
@@ -34,4 +35,7 @@ public class AppDataManager implements DataManager{
     public Observable<List<Medium>> getMedia() { return iApiHelper.getMedia();}
 
     public Observable<List<Events>> getEvents() { return iApiHelper.getEvents();}
+
+    public Observable<List<EventsDetails>> getEventsDetails(int id) { return iApiHelper.getEventsDetails(id);}
+
 }

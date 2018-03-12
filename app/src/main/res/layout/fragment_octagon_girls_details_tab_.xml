@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tae.myufc_app.octagon_girls.OctagonGirlsDetails_Fragment">
+    tools:context="com.example.tae.myufc_app.octagon_girls.octagon_girls_details.OctagonGirlsDetails_Fragment">
 
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
@@ -38,7 +38,7 @@
 
     <TextView
         android:id="@+id/quote"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@color/colorPrimary"

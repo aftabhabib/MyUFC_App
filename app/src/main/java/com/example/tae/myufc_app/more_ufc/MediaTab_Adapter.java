@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tae.myufc_app.MainActivity;
+import com.example.tae.myufc_app.MyApp;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.model.Medium;
 import com.squareup.picasso.Picasso;
@@ -92,10 +92,14 @@ public class MediaTab_Adapter extends RecyclerView.Adapter<MediaTab_Adapter.MyVi
 
                         //MainActivity.playMediaVideo(urlStream);
 
-                        String mediaUrl = urlStream;
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(mediaUrl));
-                        applicationContext.startActivity(i);
+                        SharedPreferences sharedPref = applicationContext.getSharedPreferences("MediaVideoURL", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("mediaVideoURL", urlStream);
+                        editor.commit();
+
+                        Intent intent = new Intent(MyApp.getInstance().getAppContext(), MediaTab_Main.class);
+                        MyApp.getInstance().getAppContext().startActivity(intent);
+
                     }
                     }
 

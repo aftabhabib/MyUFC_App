@@ -1,31 +1,23 @@
-package com.example.tae.myufc_app.octagon_girls;
+package com.example.tae.myufc_app.octagon_girls.adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tae.myufc_app.MainActivity;
+import com.example.tae.myufc_app.MyApp;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
+import com.example.tae.myufc_app.octagon_girls.octagon_girls_details.OctagonGirlsDetails_Main;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-import java.util.function.Consumer;
-
-import butterknife.OnClick;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -118,7 +110,9 @@ public class OctagonGirlTab_Adapter extends RecyclerView.Adapter<OctagonGirlTab_
                         editor.putString("youtube", youtube);
                         editor.commit();
 
-                        MainActivity.loadOctagonGirlsDetailsFragment();
+                       // MainActivity.loadOctagonGirlsDetailsFragment();
+                        Intent intent = new Intent(MyApp.getInstance().getAppContext(), OctagonGirlsDetails_Main.class);
+                        MyApp.getInstance().getAppContext().startActivity(intent);
 
                     }
                 }

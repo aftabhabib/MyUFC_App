@@ -13,6 +13,8 @@ public class ApiList {
     public static final String OCTAGON_GIRLS="octagon_girls/";
     public static final String MEDIA_URL="media/";
     public static final String EVENT_URL="events/";
+    public static final String EVENT_DETAILS_URL="events/{id}/fights";
+
     //public static final String OCTAGON_GIRL_DETAIL="octagon_girls/{id}";
 
   //  public static final String TextInput_API = "random/?firstName={}&lastName=doe";

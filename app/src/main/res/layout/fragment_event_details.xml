@@ -2,8 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="50dp"
-    tools:context="com.example.tae.myufc_app.octagon_girls.octagon_girls_gallery_tab.OctagonGirlsGalleryTab_Fragment">
+    tools:context="com.example.tae.myufc_app.main_events.event_details.EventDetailsFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"

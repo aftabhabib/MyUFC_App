@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.tae.myufc_app.octagon_girls.OctagonGirlsGalleryTab_Fragment;
-import com.example.tae.myufc_app.octagon_girls.OctagonGirlsTab_Fragment;
+import com.example.tae.myufc_app.octagon_girls.octagon_girls_gallery_tab.OctagonGirlsGalleryTab_Fragment;
+import com.example.tae.myufc_app.octagon_girls.octagon_girls_tab.OctagonGirlsTab_Fragment;
 
 
 public class PagerAdapter extends FragmentStatePagerAdapter {

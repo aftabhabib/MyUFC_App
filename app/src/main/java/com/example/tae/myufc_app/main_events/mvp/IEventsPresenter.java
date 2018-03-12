@@ -9,4 +9,5 @@ import com.example.tae.myufc_app.ui.base.MvpPresenter;
 public interface IEventsPresenter <V extends IEventsMvpView> extends MvpPresenter<V> {
 
     void loadEvents();
+    void loadEventsDetails(int id);
 }
