@@ -10,4 +10,6 @@ public interface IEventsPresenter <V extends IEventsMvpView> extends MvpPresente
 
     void loadEvents();
     void loadEventsDetails(int id);
+    void loadNews();
+
 }

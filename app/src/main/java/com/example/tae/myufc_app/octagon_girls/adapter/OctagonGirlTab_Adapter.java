@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tae.myufc_app.MainActivity;
 import com.example.tae.myufc_app.MyApp;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;

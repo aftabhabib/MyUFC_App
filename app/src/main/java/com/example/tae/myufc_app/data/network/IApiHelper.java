@@ -3,6 +3,7 @@ package com.example.tae.myufc_app.data.network;
 import com.example.tae.myufc_app.data.network.model.Events;
 import com.example.tae.myufc_app.data.network.model.EventsDetails;
 import com.example.tae.myufc_app.data.network.model.Medium;
+import com.example.tae.myufc_app.data.network.model.News;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
 
 import java.util.List;
@@ -22,6 +23,8 @@ public interface IApiHelper {
     Observable<List<Events>> getEvents();
 
     Observable<List<EventsDetails>> getEventsDetails(int id);
+
+    Observable<List<News>> getNews();
 
    // Observable<OctagonGirl> getOctagonGirlDetail(int id);
 }

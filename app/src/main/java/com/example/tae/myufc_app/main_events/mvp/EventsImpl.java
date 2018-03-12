@@ -5,11 +5,13 @@ import android.widget.ExpandableListView;
 import com.example.tae.myufc_app.data.network.DataManager;
 import com.example.tae.myufc_app.data.network.model.Events;
 import com.example.tae.myufc_app.data.network.model.EventsDetails;
+import com.example.tae.myufc_app.data.network.model.News;
 import com.example.tae.myufc_app.ui.base.BasePresenter;
 import com.example.tae.myufc_app.ui.utils.rx.SchedulerProvider;
 
 import java.util.List;
 
+import butterknife.OnFocusChange;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
@@ -63,5 +65,25 @@ implements IEventsPresenter<V>{
 
                             }
                         }));
+    }
+
+    @Override
+    public void loadNews()
+    {
+    getCompositeDisposable()
+            .add(getDataManager().getNews()
+                    .subscribeOn(getSchedulerProvider().io())
+                    .observeOn(getSchedulerProvider().ui())
+                    .subscribe(new Consumer<List<News>>() {
+                        @Override
+                        public void accept(List<News> news) throws Exception {
+                            getMvpView().onFetchDataSuccessNews(news);
+                        }
+                    }, new Consumer<Throwable>() {
+                        @Override
+                        public void accept(Throwable throwable) throws Exception {
+
+                        }
+                    }));
     }
 }

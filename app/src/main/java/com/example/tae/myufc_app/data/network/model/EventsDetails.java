@@ -14,7 +14,7 @@ public class EventsDetails {
     private Integer id;
     @SerializedName("fighter1reach")
     @Expose
-    private Object fighter1reach;
+    private Integer fighter1reach;
     @SerializedName("fighter2weight")
     @Expose
     private Integer fighter2weight;
@@ -26,7 +26,7 @@ public class EventsDetails {
     private String fighter2record;
     @SerializedName("fighter2reach")
     @Expose
-    private Object fighter2reach;
+    private Integer fighter2reach;
     @SerializedName("event_id")
     @Expose
     private Integer eventId;
@@ -71,43 +71,43 @@ public class EventsDetails {
     private Object fighter2odds;
     @SerializedName("fighter1_nickname")
     @Expose
-    private Object fighter1Nickname;
+    private String fighter1Nickname;
     @SerializedName("fighter1_wins")
     @Expose
-    private Object fighter1Wins;
+    private Integer fighter1Wins;
     @SerializedName("fighter1_statid")
     @Expose
-    private Object fighter1Statid;
+    private Integer fighter1Statid;
     @SerializedName("fighter1_losses")
     @Expose
-    private Object fighter1Losses;
+    private Integer fighter1Losses;
     @SerializedName("fighter1_last_name")
     @Expose
     private String fighter1LastName;
     @SerializedName("fighter1_weight_class")
     @Expose
-    private Object fighter1WeightClass;
+    private String fighter1WeightClass;
     @SerializedName("fighter1_draws")
     @Expose
-    private Object fighter1Draws;
+    private Integer fighter1Draws;
     @SerializedName("fighter1_first_name")
     @Expose
     private String fighter1FirstName;
     @SerializedName("fighter1_rank")
     @Expose
-    private Object fighter1Rank;
+    private String fighter1Rank;
     @SerializedName("fighter2_nickname")
     @Expose
-    private Object fighter2Nickname;
+    private String fighter2Nickname;
     @SerializedName("fighter2_wins")
     @Expose
-    private Object fighter2Wins;
+    private Integer fighter2Wins;
     @SerializedName("fighter2_statid")
     @Expose
-    private Object fighter2Statid;
+    private Integer fighter2Statid;
     @SerializedName("fighter2_losses")
     @Expose
-    private Object fighter2Losses;
+    private Integer fighter2Losses;
     @SerializedName("fighter2_last_name")
     @Expose
     private String fighter2LastName;
@@ -116,13 +116,13 @@ public class EventsDetails {
     private String fighter2WeightClass;
     @SerializedName("fighter2_draws")
     @Expose
-    private Object fighter2Draws;
+    private Integer fighter2Draws;
     @SerializedName("fighter2_first_name")
     @Expose
     private String fighter2FirstName;
     @SerializedName("fighter2_rank")
     @Expose
-    private Object fighter2Rank;
+    private String fighter2Rank;
     @SerializedName("fighter2_full_body_image")
     @Expose
     private String fighter2FullBodyImage;
@@ -141,6 +141,84 @@ public class EventsDetails {
     @SerializedName("fm_fight_rhythm_feed_url")
     @Expose
     private String fmFightRhythmFeedUrl;
+    @SerializedName("fighter1_full_body_image")
+    @Expose
+    private String fighter1FullBodyImage;
+    @SerializedName("fighter1_averagefighttime")
+    @Expose
+    private String fighter1Averagefighttime;
+    @SerializedName("fighter1_averagefighttime_seconds")
+    @Expose
+    private String fighter1AveragefighttimeSeconds;
+    @SerializedName("fighter1_kdaverage")
+    @Expose
+    private String fighter1Kdaverage;
+    @SerializedName("fighter1_slpm")
+    @Expose
+    private String fighter1Slpm;
+    @SerializedName("fighter1_strikingaccuracy")
+    @Expose
+    private String fighter1Strikingaccuracy;
+    @SerializedName("fighter1_sapm")
+    @Expose
+    private String fighter1Sapm;
+    @SerializedName("fighter1_strikingdefense")
+    @Expose
+    private String fighter1Strikingdefense;
+    @SerializedName("fighter1_takedownaverage")
+    @Expose
+    private String fighter1Takedownaverage;
+    @SerializedName("fighter1_takedownaccuracy")
+    @Expose
+    private String fighter1Takedownaccuracy;
+    @SerializedName("fighter1_takedowndefense")
+    @Expose
+    private String fighter1Takedowndefense;
+    @SerializedName("fighter1_submissionsaverage")
+    @Expose
+    private String fighter1Submissionsaverage;
+    @SerializedName("fighter2_averagefighttime")
+    @Expose
+    private String fighter2Averagefighttime;
+    @SerializedName("fighter2_averagefighttime_seconds")
+    @Expose
+    private String fighter2AveragefighttimeSeconds;
+    @SerializedName("fighter2_kdaverage")
+    @Expose
+    private String fighter2Kdaverage;
+    @SerializedName("fighter2_slpm")
+    @Expose
+    private String fighter2Slpm;
+    @SerializedName("fighter2_strikingaccuracy")
+    @Expose
+    private String fighter2Strikingaccuracy;
+    @SerializedName("fighter2_sapm")
+    @Expose
+    private String fighter2Sapm;
+    @SerializedName("fighter2_strikingdefense")
+    @Expose
+    private String fighter2Strikingdefense;
+    @SerializedName("fighter2_takedownaverage")
+    @Expose
+    private String fighter2Takedownaverage;
+    @SerializedName("fighter2_takedownaccuracy")
+    @Expose
+    private String fighter2Takedownaccuracy;
+    @SerializedName("fighter2_takedowndefense")
+    @Expose
+    private String fighter2Takedowndefense;
+    @SerializedName("fighter2_submissionsaverage")
+    @Expose
+    private String fighter2Submissionsaverage;
+    @SerializedName("fighter1_is_winner")
+    @Expose
+    private Boolean fighter1IsWinner;
+    @SerializedName("fighter2_is_winner")
+    @Expose
+    private Boolean fighter2IsWinner;
+    @SerializedName("result")
+    @Expose
+    private Result result;
 
     public Integer getId() {
         return id;
@@ -150,11 +228,11 @@ public class EventsDetails {
         this.id = id;
     }
 
-    public Object getFighter1reach() {
+    public Integer getFighter1reach() {
         return fighter1reach;
     }
 
-    public void setFighter1reach(Object fighter1reach) {
+    public void setFighter1reach(Integer fighter1reach) {
         this.fighter1reach = fighter1reach;
     }
 
@@ -182,11 +260,11 @@ public class EventsDetails {
         this.fighter2record = fighter2record;
     }
 
-    public Object getFighter2reach() {
+    public Integer getFighter2reach() {
         return fighter2reach;
     }
 
-    public void setFighter2reach(Object fighter2reach) {
+    public void setFighter2reach(Integer fighter2reach) {
         this.fighter2reach = fighter2reach;
     }
 
@@ -302,35 +380,35 @@ public class EventsDetails {
         this.fighter2odds = fighter2odds;
     }
 
-    public Object getFighter1Nickname() {
+    public String getFighter1Nickname() {
         return fighter1Nickname;
     }
 
-    public void setFighter1Nickname(Object fighter1Nickname) {
+    public void setFighter1Nickname(String fighter1Nickname) {
         this.fighter1Nickname = fighter1Nickname;
     }
 
-    public Object getFighter1Wins() {
+    public Integer getFighter1Wins() {
         return fighter1Wins;
     }
 
-    public void setFighter1Wins(Object fighter1Wins) {
+    public void setFighter1Wins(Integer fighter1Wins) {
         this.fighter1Wins = fighter1Wins;
     }
 
-    public Object getFighter1Statid() {
+    public Integer getFighter1Statid() {
         return fighter1Statid;
     }
 
-    public void setFighter1Statid(Object fighter1Statid) {
+    public void setFighter1Statid(Integer fighter1Statid) {
         this.fighter1Statid = fighter1Statid;
     }
 
-    public Object getFighter1Losses() {
+    public Integer getFighter1Losses() {
         return fighter1Losses;
     }
 
-    public void setFighter1Losses(Object fighter1Losses) {
+    public void setFighter1Losses(Integer fighter1Losses) {
         this.fighter1Losses = fighter1Losses;
     }
 
@@ -342,19 +420,19 @@ public class EventsDetails {
         this.fighter1LastName = fighter1LastName;
     }
 
-    public Object getFighter1WeightClass() {
+    public String getFighter1WeightClass() {
         return fighter1WeightClass;
     }
 
-    public void setFighter1WeightClass(Object fighter1WeightClass) {
+    public void setFighter1WeightClass(String fighter1WeightClass) {
         this.fighter1WeightClass = fighter1WeightClass;
     }
 
-    public Object getFighter1Draws() {
+    public Integer getFighter1Draws() {
         return fighter1Draws;
     }
 
-    public void setFighter1Draws(Object fighter1Draws) {
+    public void setFighter1Draws(Integer fighter1Draws) {
         this.fighter1Draws = fighter1Draws;
     }
 
@@ -366,43 +444,43 @@ public class EventsDetails {
         this.fighter1FirstName = fighter1FirstName;
     }
 
-    public Object getFighter1Rank() {
+    public String getFighter1Rank() {
         return fighter1Rank;
     }
 
-    public void setFighter1Rank(Object fighter1Rank) {
+    public void setFighter1Rank(String fighter1Rank) {
         this.fighter1Rank = fighter1Rank;
     }
 
-    public Object getFighter2Nickname() {
+    public String getFighter2Nickname() {
         return fighter2Nickname;
     }
 
-    public void setFighter2Nickname(Object fighter2Nickname) {
+    public void setFighter2Nickname(String fighter2Nickname) {
         this.fighter2Nickname = fighter2Nickname;
     }
 
-    public Object getFighter2Wins() {
+    public Integer getFighter2Wins() {
         return fighter2Wins;
     }
 
-    public void setFighter2Wins(Object fighter2Wins) {
+    public void setFighter2Wins(Integer fighter2Wins) {
         this.fighter2Wins = fighter2Wins;
     }
 
-    public Object getFighter2Statid() {
+    public Integer getFighter2Statid() {
         return fighter2Statid;
     }
 
-    public void setFighter2Statid(Object fighter2Statid) {
+    public void setFighter2Statid(Integer fighter2Statid) {
         this.fighter2Statid = fighter2Statid;
     }
 
-    public Object getFighter2Losses() {
+    public Integer getFighter2Losses() {
         return fighter2Losses;
     }
 
-    public void setFighter2Losses(Object fighter2Losses) {
+    public void setFighter2Losses(Integer fighter2Losses) {
         this.fighter2Losses = fighter2Losses;
     }
 
@@ -422,11 +500,11 @@ public class EventsDetails {
         this.fighter2WeightClass = fighter2WeightClass;
     }
 
-    public Object getFighter2Draws() {
+    public Integer getFighter2Draws() {
         return fighter2Draws;
     }
 
-    public void setFighter2Draws(Object fighter2Draws) {
+    public void setFighter2Draws(Integer fighter2Draws) {
         this.fighter2Draws = fighter2Draws;
     }
 
@@ -438,11 +516,11 @@ public class EventsDetails {
         this.fighter2FirstName = fighter2FirstName;
     }
 
-    public Object getFighter2Rank() {
+    public String getFighter2Rank() {
         return fighter2Rank;
     }
 
-    public void setFighter2Rank(Object fighter2Rank) {
+    public void setFighter2Rank(String fighter2Rank) {
         this.fighter2Rank = fighter2Rank;
     }
 
@@ -492,6 +570,214 @@ public class EventsDetails {
 
     public void setFmFightRhythmFeedUrl(String fmFightRhythmFeedUrl) {
         this.fmFightRhythmFeedUrl = fmFightRhythmFeedUrl;
+    }
+
+    public String getFighter1FullBodyImage() {
+        return fighter1FullBodyImage;
+    }
+
+    public void setFighter1FullBodyImage(String fighter1FullBodyImage) {
+        this.fighter1FullBodyImage = fighter1FullBodyImage;
+    }
+
+    public String getFighter1Averagefighttime() {
+        return fighter1Averagefighttime;
+    }
+
+    public void setFighter1Averagefighttime(String fighter1Averagefighttime) {
+        this.fighter1Averagefighttime = fighter1Averagefighttime;
+    }
+
+    public String getFighter1AveragefighttimeSeconds() {
+        return fighter1AveragefighttimeSeconds;
+    }
+
+    public void setFighter1AveragefighttimeSeconds(String fighter1AveragefighttimeSeconds) {
+        this.fighter1AveragefighttimeSeconds = fighter1AveragefighttimeSeconds;
+    }
+
+    public String getFighter1Kdaverage() {
+        return fighter1Kdaverage;
+    }
+
+    public void setFighter1Kdaverage(String fighter1Kdaverage) {
+        this.fighter1Kdaverage = fighter1Kdaverage;
+    }
+
+    public String getFighter1Slpm() {
+        return fighter1Slpm;
+    }
+
+    public void setFighter1Slpm(String fighter1Slpm) {
+        this.fighter1Slpm = fighter1Slpm;
+    }
+
+    public String getFighter1Strikingaccuracy() {
+        return fighter1Strikingaccuracy;
+    }
+
+    public void setFighter1Strikingaccuracy(String fighter1Strikingaccuracy) {
+        this.fighter1Strikingaccuracy = fighter1Strikingaccuracy;
+    }
+
+    public String getFighter1Sapm() {
+        return fighter1Sapm;
+    }
+
+    public void setFighter1Sapm(String fighter1Sapm) {
+        this.fighter1Sapm = fighter1Sapm;
+    }
+
+    public String getFighter1Strikingdefense() {
+        return fighter1Strikingdefense;
+    }
+
+    public void setFighter1Strikingdefense(String fighter1Strikingdefense) {
+        this.fighter1Strikingdefense = fighter1Strikingdefense;
+    }
+
+    public String getFighter1Takedownaverage() {
+        return fighter1Takedownaverage;
+    }
+
+    public void setFighter1Takedownaverage(String fighter1Takedownaverage) {
+        this.fighter1Takedownaverage = fighter1Takedownaverage;
+    }
+
+    public String getFighter1Takedownaccuracy() {
+        return fighter1Takedownaccuracy;
+    }
+
+    public void setFighter1Takedownaccuracy(String fighter1Takedownaccuracy) {
+        this.fighter1Takedownaccuracy = fighter1Takedownaccuracy;
+    }
+
+    public String getFighter1Takedowndefense() {
+        return fighter1Takedowndefense;
+    }
+
+    public void setFighter1Takedowndefense(String fighter1Takedowndefense) {
+        this.fighter1Takedowndefense = fighter1Takedowndefense;
+    }
+
+    public String getFighter1Submissionsaverage() {
+        return fighter1Submissionsaverage;
+    }
+
+    public void setFighter1Submissionsaverage(String fighter1Submissionsaverage) {
+        this.fighter1Submissionsaverage = fighter1Submissionsaverage;
+    }
+
+    public String getFighter2Averagefighttime() {
+        return fighter2Averagefighttime;
+    }
+
+    public void setFighter2Averagefighttime(String fighter2Averagefighttime) {
+        this.fighter2Averagefighttime = fighter2Averagefighttime;
+    }
+
+    public String getFighter2AveragefighttimeSeconds() {
+        return fighter2AveragefighttimeSeconds;
+    }
+
+    public void setFighter2AveragefighttimeSeconds(String fighter2AveragefighttimeSeconds) {
+        this.fighter2AveragefighttimeSeconds = fighter2AveragefighttimeSeconds;
+    }
+
+    public String getFighter2Kdaverage() {
+        return fighter2Kdaverage;
+    }
+
+    public void setFighter2Kdaverage(String fighter2Kdaverage) {
+        this.fighter2Kdaverage = fighter2Kdaverage;
+    }
+
+    public String getFighter2Slpm() {
+        return fighter2Slpm;
+    }
+
+    public void setFighter2Slpm(String fighter2Slpm) {
+        this.fighter2Slpm = fighter2Slpm;
+    }
+
+    public String getFighter2Strikingaccuracy() {
+        return fighter2Strikingaccuracy;
+    }
+
+    public void setFighter2Strikingaccuracy(String fighter2Strikingaccuracy) {
+        this.fighter2Strikingaccuracy = fighter2Strikingaccuracy;
+    }
+
+    public String getFighter2Sapm() {
+        return fighter2Sapm;
+    }
+
+    public void setFighter2Sapm(String fighter2Sapm) {
+        this.fighter2Sapm = fighter2Sapm;
+    }
+
+    public String getFighter2Strikingdefense() {
+        return fighter2Strikingdefense;
+    }
+
+    public void setFighter2Strikingdefense(String fighter2Strikingdefense) {
+        this.fighter2Strikingdefense = fighter2Strikingdefense;
+    }
+
+    public String getFighter2Takedownaverage() {
+        return fighter2Takedownaverage;
+    }
+
+    public void setFighter2Takedownaverage(String fighter2Takedownaverage) {
+        this.fighter2Takedownaverage = fighter2Takedownaverage;
+    }
+
+    public String getFighter2Takedownaccuracy() {
+        return fighter2Takedownaccuracy;
+    }
+
+    public void setFighter2Takedownaccuracy(String fighter2Takedownaccuracy) {
+        this.fighter2Takedownaccuracy = fighter2Takedownaccuracy;
+    }
+
+    public String getFighter2Takedowndefense() {
+        return fighter2Takedowndefense;
+    }
+
+    public void setFighter2Takedowndefense(String fighter2Takedowndefense) {
+        this.fighter2Takedowndefense = fighter2Takedowndefense;
+    }
+
+    public String getFighter2Submissionsaverage() {
+        return fighter2Submissionsaverage;
+    }
+
+    public void setFighter2Submissionsaverage(String fighter2Submissionsaverage) {
+        this.fighter2Submissionsaverage = fighter2Submissionsaverage;
+    }
+
+    public Boolean getFighter1IsWinner() {
+        return fighter1IsWinner;
+    }
+
+    public void setFighter1IsWinner(Boolean fighter1IsWinner) {
+        this.fighter1IsWinner = fighter1IsWinner;
+    }
+
+    public Boolean getFighter2IsWinner() {
+        return fighter2IsWinner;
+    }
+
+    public void setFighter2IsWinner(Boolean fighter2IsWinner) {
+        this.fighter2IsWinner = fighter2IsWinner;
+    }
+
+    public Result getResult() {
+        return result;
+    }
+
+    public void setResult(Result result) {
+        this.result = result;
     }
 
 }

@@ -58,15 +58,6 @@ public class MediaTab_Main extends AppCompatActivity {
         videoView.setVideoPath(mediaURL);
         videoView.start();
 
-        btnClose = findViewById(R.id.btnClose);
-        btnClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                videoView.stopPlayback();
-
-            }
-        });
-
     }
 
 

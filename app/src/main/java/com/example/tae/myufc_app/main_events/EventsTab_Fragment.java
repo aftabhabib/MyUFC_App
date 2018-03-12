@@ -12,6 +12,7 @@ import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.AppDataManager;
 import com.example.tae.myufc_app.data.network.model.Events;
 import com.example.tae.myufc_app.data.network.model.EventsDetails;
+import com.example.tae.myufc_app.data.network.model.News;
 import com.example.tae.myufc_app.main_events.adapter.EventsTab_Adapter;
 import com.example.tae.myufc_app.main_events.mvp.EventsImpl;
 import com.example.tae.myufc_app.main_events.mvp.IEventsMvpView;
@@ -82,6 +83,11 @@ implements IEventsMvpView{
 
     @Override
     public void onFetchDataError(String error) {
+
+    }
+
+    @Override
+    public void onFetchDataSuccessNews(List<News> news) {
 
     }
 }

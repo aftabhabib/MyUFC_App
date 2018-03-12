@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tae.myufc_app.MainActivity;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.model.EventsDetails;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -41,31 +41,88 @@ public class EventsDetails_Adapter extends RecyclerView.Adapter<EventsDetails_Ad
         holder.tName1.setText(result.get(position).getFighter1LastName());
         holder.tName2.setText(result.get(position).getFighter2LastName());
 
-      //  holder.tTitle.setText(result.get(position).getTitleTagLine());
-      //  holder.tDate.setText("Date: " + result.get(position).getEndEventDategmt().substring(0, 10));
-     //   holder.tTime.setText("Time: " + result.get(position).getEndEventDategmt().substring(12, 16) + "pm");
-
-      //  Context context = holder.tImgView.getContext();
-
-       // if (result.get(position).getFeatureImage() != ""){
-      //      Picasso.with(context)
-      //              .load(result.get(position).getFeatureImage())
-      //              .into(holder.tImgView);
+        if (result.get(position).getFighter1record() != null) {
+            holder.tRecord1.setText(result.get(position).getFighter1record());
         }
 
-     //   else if (result.get(position).getFeatureImage() == ""
-         //       && result.get(position).getSecondaryFeatureImage() != "") {
-        //    Picasso.with(context)
-         //           .load(result.get(position).getSecondaryFeatureImage())
-          //          .into(holder.tImgView);
-     //   }
+        else if (result.get(position).getFighter1record() == null)
+        {
+            holder.tRecord1.setText("Not provided");
+        }
 
-      //  else
-      //      {
-       //     Picasso.with(context)
-         //       .load("https://www.fightful.com/sites/default/files/event-header/ufc-og-image_5.png")
-        //        .into(holder.tImgView);
-       // }
+        if (result.get(position).getFighter2record() != null)
+        {
+            holder.tRecord2.setText(result.get(position).getFighter2record());
+        }
+
+        else if (result.get(position).getFighter2record() == null)
+        {
+            holder.tRecord2.setText("Not provided");
+        }
+
+
+        holder.tHeight1.setText(result.get(position).getFighter1height().toString() + "cm");
+        holder.tHeight2.setText(result.get(position).getFighter2height().toString() + "cm");
+
+        if (result.get(position).getFighter1weight() != null) {
+            holder.tWeight1.setText(result.get(position).getFighter1weight().toString() + "kg");
+        }
+
+        else if (result.get(position).getFighter1weight() == null)
+        {
+            holder.tWeight1.setText("Not Specified");
+        }
+
+        if (result.get(position).getFighter2weight() != null) {
+            holder.tWeight2.setText(result.get(position).getFighter2weight().toString() + "kg");
+        }
+
+        else if (result.get(position).getFighter2weight() == null)
+        {
+            holder.tWeight2.setText("Not Specified");
+        }
+
+
+        Context context1 = holder.tImgViewF1.getContext();
+        Context context2 = holder.tImgViewF2.getContext();
+
+        if (result.get(position).getFighter1ProfileImage() != ""){
+            Picasso.with(context1)
+                    .load(result.get(position).getFighter1ProfileImage())
+                    .into(holder.tImgViewF1);
+        }
+
+        else if (result.get(position).getFighter1ProfileImage() == ""
+                && result.get(position).getFighter1FullBodyImage() != "") {
+            Picasso.with(context1)
+                    .load(result.get(position).getFighter1FullBodyImage())
+                    .into(holder.tImgViewF1);
+        }
+
+        if (result.get(position).getFighter2ProfileImage() != ""){
+            Picasso.with(context2)
+                    .load(result.get(position).getFighter2ProfileImage())
+                    .into(holder.tImgViewF2);
+        }
+
+        else if (result.get(position).getFighter2ProfileImage() == ""
+                && result.get(position).getFighter2FullBodyImage() != "") {
+            Picasso.with(context2)
+                    .load(result.get(position).getFighter1FullBodyImage())
+                    .into(holder.tImgViewF2);
+        }
+
+        else
+        {
+            Picasso.with(context1)
+                    .load("https://www.fightful.com/sites/default/files/event-header/ufc-og-image_5.png")
+                    .into(holder.tImgViewF1);
+
+            Picasso.with(context2)
+                    .load("https://www.fightful.com/sites/default/files/event-header/ufc-og-image_5.png")
+                    .into(holder.tImgViewF2);
+        }
+    }
 
 
     @Override
@@ -75,7 +132,8 @@ public class EventsDetails_Adapter extends RecyclerView.Adapter<EventsDetails_Ad
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tName1, tName2, tDesc, tDate, tTitle, tTime;
+        private TextView tName1, tName2, tRecord1,
+                tRecord2, tHeight1, tHeight2, tWeight1, tWeight2;
         private ImageView tImgViewF1, tImgViewF2;
 
         public MyViewHolder(View itemView) {
@@ -85,11 +143,12 @@ public class EventsDetails_Adapter extends RecyclerView.Adapter<EventsDetails_Ad
             tName2 = itemView.findViewById(R.id.tName2);
             tImgViewF1 = itemView.findViewById(R.id.tImgView);
             tImgViewF2 = itemView.findViewById(R.id.tImgViewF2);
-         //   tImgView = itemView.findViewById(R.id.tImgView);
-          //  tDesc = itemView.findViewById(R.id.tDesc);
-           // tDate = itemView.findViewById(R.id.tDate);
-         //   tTitle = itemView.findViewById(R.id.tTitle);
-          //  tTime = itemView.findViewById(R.id.tTime);
+            tRecord1 = itemView.findViewById(R.id.tDate);
+            tRecord2 = itemView.findViewById(R.id.f2_record);
+            tHeight1 = itemView.findViewById(R.id.f1_height);
+            tHeight2 = itemView.findViewById(R.id.f2_height);
+            tWeight1 = itemView.findViewById(R.id.f1_weight);
+            tWeight2 = itemView.findViewById(R.id.f2_weight);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

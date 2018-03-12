@@ -22,5 +22,9 @@
     <string name="api_default_error">Something wrong happened!</string>
     <string name="some_error">Some Error Occurred!</string>
     <string name="connection_error">Internet connection lost!</string>
+    <string name="Record">RECORD</string>
+    <string name="HEIGHT">HEIGHT</string>
+    <string name="WEIGHT">WEIGHT</string>
+    <string name="REACH">REACH</string>
 
 </resources>

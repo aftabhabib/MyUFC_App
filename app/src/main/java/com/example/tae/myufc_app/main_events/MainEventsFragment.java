@@ -38,8 +38,7 @@ public class MainEventsFragment extends Fragment {
 
         TabLayout tabLayout = view.findViewById(R.id.tablayout);
         tabLayout.addTab(tabLayout.newTab().setText("Latest Events"));
-        tabLayout.addTab(tabLayout.newTab().setText("Fights"));
-        tabLayout.addTab(tabLayout.newTab().setText("News"));
+        tabLayout.addTab(tabLayout.newTab().setText("News Feed"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = view.findViewById(R.id.pager);

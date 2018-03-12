@@ -80,7 +80,7 @@ public class EventsTab_Adapter extends RecyclerView.Adapter<EventsTab_Adapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tName, tDesc, tDate, tTitle, tTime;
+        private TextView tName, tDate, tTitle, tTime;
         private ImageView tImgView;
 
         public MyViewHolder(View itemView) {
@@ -88,7 +88,6 @@ public class EventsTab_Adapter extends RecyclerView.Adapter<EventsTab_Adapter.My
 
             tName = itemView.findViewById(R.id.tName);
             tImgView = itemView.findViewById(R.id.tImgView);
-            tDesc = itemView.findViewById(R.id.tDesc);
             tDate = itemView.findViewById(R.id.tDate);
             tTitle = itemView.findViewById(R.id.tTitle);
             tTime = itemView.findViewById(R.id.tTime);

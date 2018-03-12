@@ -1,4 +1,4 @@
-package com.example.tae.myufc_app.main_events;
+package com.example.tae.myufc_app.main_events.news_feed_tab;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.example.tae.myufc_app.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FightsTab_Fragment extends Fragment {
+public class NewsDetails_Fragment extends Fragment {
 
 
-    public FightsTab_Fragment() {
+    public NewsDetails_Fragment() {
         // Required empty public constructor
     }
 
@@ -24,9 +24,7 @@ public class FightsTab_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fights_tab_, container, false);
+        return inflater.inflate(R.layout.fragment_news_details, container, false);
     }
 
-    public interface OnFragmentInteractionListener {
-    }
 }
