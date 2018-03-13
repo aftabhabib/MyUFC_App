@@ -25,7 +25,10 @@
         </activity>
         <activity android:name=".main_events.event_details.Event_Details_Main" />
         <activity android:name=".octagon_girls.octagon_girls_details.OctagonGirlsDetails_Main" />
-        <activity android:name=".more_ufc.MediaTab_Main"></activity>
+        <activity android:name=".more_ufc.MediaTab_Main" />
+        <activity android:name=".main_events.NewsDetail_Activity" />
+        <activity android:name=".buy_tickets.buy_tickets_activity" />
+        <activity android:name=".live_stream.live_stream_activity"></activity>
     </application>
 
 </manifest>

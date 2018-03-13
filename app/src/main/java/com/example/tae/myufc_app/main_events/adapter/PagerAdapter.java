@@ -25,10 +25,10 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         {
 
             case 0:
-                EventsTab_Fragment tab1 = new EventsTab_Fragment();
+                NewsTab_Fragment tab1 = new NewsTab_Fragment();
                 return tab1;
             case 1:
-                NewsTab_Fragment tab2 = new NewsTab_Fragment();
+                 EventsTab_Fragment tab2 = new EventsTab_Fragment();
                 return  tab2;
             default:
                 return null;

@@ -42,7 +42,6 @@ public interface IRequestInterface {
     @GET(ApiList.NEWS_URL)
     Observable<List<News>> getNews();
 
-
    // @GET(ApiList.OCTAGON_GIRL_DETAIL)
   //  Observable<OctagonGirl> getOctagonGirlDetail(@Path("id") int id);
 

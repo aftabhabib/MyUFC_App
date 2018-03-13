@@ -1,6 +1,7 @@
 package com.example.tae.myufc_app.main_events.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.tae.myufc_app.MyApp;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.model.News;
+import com.example.tae.myufc_app.data.network.service.ApiList;
+import com.example.tae.myufc_app.main_events.NewsDetail_Activity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -94,15 +98,15 @@ public class NewsTab_Adapter extends RecyclerView.Adapter<NewsTab_Adapter.MyView
 
 
                     if (pos != RecyclerView.NO_POSITION) {
-                      //  SharedPreferences sharedPref = applicationContext.getSharedPreferences("EventDetails", MODE_PRIVATE);
-                      //  SharedPreferences.Editor editor = sharedPref.edit();
-                      //  editor.putInt("event_id", id);
-                      //  editor.commit();
+                        String URL = ApiList.NEWS_URL + id;
 
+                        SharedPreferences sharedPref = applicationContext.getSharedPreferences("NewsDetail", applicationContext.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("news_detail", URL);
+                        editor.commit();
 
-                       // Intent intent = new Intent(MyApp.getInstance().getAppContext(), Event_Details_Main.class);
-                      //  MyApp.getInstance().getAppContext().startActivity(intent);
-
+                        Intent intent = new Intent(MyApp.getInstance().getAppContext(), NewsDetail_Activity.class);
+                        MyApp.getInstance().getAppContext().startActivity(intent);
                     }
                 }
             });

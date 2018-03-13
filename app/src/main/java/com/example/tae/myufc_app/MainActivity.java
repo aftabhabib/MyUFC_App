@@ -17,10 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.tae.myufc_app.fighters.FighterFragment;
-import com.example.tae.myufc_app.main_events.event_details.EventDetailsFragment;
+import com.example.tae.myufc_app.buy_tickets.buy_tickets_activity;
+import com.example.tae.myufc_app.live_stream.live_stream_activity;
 import com.example.tae.myufc_app.main_events.MainEventsFragment;
 import com.example.tae.myufc_app.more_ufc.MoreUFCFragment;
-import com.example.tae.myufc_app.octagon_girls.octagon_girls_details.OctagonGirlsDetails_Fragment;
 import com.example.tae.myufc_app.octagon_girls.octagon_girls_tab.OctagonGirlsFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -159,10 +159,8 @@ public class MainActivity extends AppCompatActivity
     public void loadLiveStreamFragment() {
         if (savedInstanceState == null) {
 
-            String url = "http://ufc-data-api.ufc.com/api/v3/iphone/live";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            startActivity(i);
+            Intent intent = new Intent(MyApp.getInstance().getAppContext(), live_stream_activity.class);
+            MyApp.getInstance().getAppContext().startActivity(intent);
         }
     }
 
@@ -180,16 +178,15 @@ public class MainActivity extends AppCompatActivity
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer, new OctagonGirlsFragment())
-                    .addToBackStack("octgirlsfrag")
+                    .addToBackStack(null)
                     .commit();
         }
     }
 
       public void buyTicketsIntent() {
-        String url = "http://m.uk.ufc.com/tickets";
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
+
+          Intent intent = new Intent(MyApp.getInstance().getAppContext(), buy_tickets_activity.class);
+          MyApp.getInstance().getAppContext().startActivity(intent);
     }
 
 

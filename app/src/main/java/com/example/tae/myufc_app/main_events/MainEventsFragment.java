@@ -37,13 +37,14 @@ public class MainEventsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         TabLayout tabLayout = view.findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("Latest Events"));
         tabLayout.addTab(tabLayout.newTab().setText("News Feed"));
+        tabLayout.addTab(tabLayout.newTab().setText("Latest Events"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = view.findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter(getFragmentManager(),tabLayout.getTabCount());
+         ViewPager viewPager = view.findViewById(R.id.pager);
+         PagerAdapter adapter = new PagerAdapter(getFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
+
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

@@ -85,7 +85,7 @@ implements IEventsMvpView{
 
     @Override
     public void onFetchDataSuccessDetails(List<EventsDetails> eventsDetails) {
-        Toast.makeText(getActivity().getApplicationContext(), "the id is: " + eventsDetails.get(0).getFighter1FirstName(), Toast.LENGTH_LONG).show();
+       // Toast.makeText(getActivity().getApplicationContext(), "the id is: " + eventsDetails.get(0).getFighter1FirstName(), Toast.LENGTH_LONG).show();
         recyclerView.setAdapter(new EventsDetails_Adapter(getActivity().getApplicationContext(), eventsDetails, R.layout.events_details_row));
 
     }
