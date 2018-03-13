@@ -33,7 +33,7 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
 
     //private int id;
     private String name, height, weight, food, quote, website, img, youtube;
-    private TextView tName, tQuote, tHeight, tWeight, tFood, tWeb;
+    private TextView tName, tQuote, tHeight, tWeight, tFood;
     private ImageButton btnYoutube;
     private ImageView tImage;
     SharedPreferences sharedPref;
@@ -64,6 +64,7 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
 
 
         btnYoutube = view.findViewById(R.id.btnYoutube);
+        btnYoutube.setImageResource(R.drawable.ic_launcher_background);
         btnYoutube.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +81,7 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
         tHeight = view.findViewById(R.id.tHeight);
         tWeight = view.findViewById(R.id.tWeight);
         tFood = view.findViewById(R.id.tFood);
-        tWeb = view.findViewById(R.id.tWeb);
+       // tWeb = "";
         tImage = view.findViewById(R.id.tImg);
          if (sharedPref != null) {
         getChanges();
@@ -103,7 +104,6 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
                 tFood.setText(food.toString());
                 tHeight.setText(height.toString());
                 tWeight.setText(weight.toString());
-                tWeb.setText(website.toString());
 
 
                 Picasso.with(getActivity())
