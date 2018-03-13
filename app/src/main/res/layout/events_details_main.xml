@@ -5,6 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.tae.myufc_app.main_events.event_details.Event_Details_Main">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tNameText"
+    android:background="@color/colorPrimary"
+    android:textColor="#fff"
+    android:textSize="18sp"/>
 
     <FrameLayout
         android:id="@+id/fragment_container"

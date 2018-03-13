@@ -73,7 +73,7 @@ public class MediaTab_Adapter extends RecyclerView.Adapter<MediaTab_Adapter.MyVi
             tName = itemView.findViewById(R.id.tName);
             tImgView = itemView.findViewById(R.id.tImgView);
             tDesc = itemView.findViewById(R.id.tDesc);
-            tDate = itemView.findViewById(R.id.tDate);
+            tDate = itemView.findViewById(R.id.tWins);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

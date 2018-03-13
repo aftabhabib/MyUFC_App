@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.tae.myufc_app.fighters.AllFightersTab_Fragment;
-import com.example.tae.myufc_app.fighters.StatsTab_Fragment;
 import com.example.tae.myufc_app.fighters.TitleHolderTab_Fragment;
 
 
@@ -31,9 +30,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 AllFightersTab_Fragment tab2 = new AllFightersTab_Fragment();
                 return  tab2;
-            case 2:
-                StatsTab_Fragment tab3 = new StatsTab_Fragment();
-                return  tab3;
             default:
                 return null;
         }

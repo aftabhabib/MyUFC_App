@@ -9,6 +9,7 @@ import com.example.tae.myufc_app.data.network.model.EventsDetails;
 import com.example.tae.myufc_app.data.network.model.Medium;
 import com.example.tae.myufc_app.data.network.model.News;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
+import com.example.tae.myufc_app.data.network.model.TitleHolders;
 
 import java.util.List;
 
@@ -41,6 +42,9 @@ public interface IRequestInterface {
 
     @GET(ApiList.NEWS_URL)
     Observable<List<News>> getNews();
+
+    @GET(ApiList.TITLE_HOLDERS_URL)
+    Observable<List<TitleHolders>> getTitleHolders();
 
    // @GET(ApiList.OCTAGON_GIRL_DETAIL)
   //  Observable<OctagonGirl> getOctagonGirlDetail(@Path("id") int id);

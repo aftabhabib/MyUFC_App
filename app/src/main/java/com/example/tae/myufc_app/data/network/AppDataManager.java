@@ -6,6 +6,7 @@ import com.example.tae.myufc_app.data.network.model.EventsDetails;
 import com.example.tae.myufc_app.data.network.model.Medium;
 import com.example.tae.myufc_app.data.network.model.News;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
+import com.example.tae.myufc_app.data.network.model.TitleHolders;
 
 import java.util.List;
 
@@ -40,5 +41,7 @@ public class AppDataManager implements DataManager{
     public Observable<List<EventsDetails>> getEventsDetails(int id) { return iApiHelper.getEventsDetails(id);}
 
     public Observable<List<News>> getNews() { return iApiHelper.getNews();}
+
+    public Observable<List<TitleHolders>> getTitleHolders() { return iApiHelper.getTitleHolders();}
 
 }

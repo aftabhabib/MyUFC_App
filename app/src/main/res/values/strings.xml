@@ -26,5 +26,6 @@
     <string name="HEIGHT">HEIGHT</string>
     <string name="WEIGHT">WEIGHT</string>
     <string name="REACH">REACH</string>
+    <string name="fightsatevent">UPCOMING FIGHTS AT THIS EVENT</string>
 
 </resources>

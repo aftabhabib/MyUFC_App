@@ -1,17 +1,20 @@
 package com.example.tae.myufc_app.main_events.event_details;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import com.example.tae.myufc_app.MyApp;
 import com.example.tae.myufc_app.R;
 
 public class Event_Details_Main extends AppCompatActivity {
 
     FragmentManager fragmentManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

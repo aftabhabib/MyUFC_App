@@ -19,7 +19,7 @@
         <item
             android:id="@+id/itm_fighters"
             android:icon="@drawable/ic_people_outline_black_24dp"
-            android:title="Fighters" />
+            android:title="MMA Fighters" />
     </group>
 
     <item android:title="More UFC">

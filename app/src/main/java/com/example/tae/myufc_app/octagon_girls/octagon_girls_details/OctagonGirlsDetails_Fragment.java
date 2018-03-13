@@ -2,7 +2,10 @@ package com.example.tae.myufc_app.octagon_girls.octagon_girls_details;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,9 +13,13 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.tae.myufc_app.MyApp;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.ui.base.BaseFragment;
 import com.squareup.picasso.Picasso;
@@ -26,7 +33,8 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
 
     //private int id;
     private String name, height, weight, food, quote, website, img, youtube;
-    private TextView tName, tQuote, tHeight, tWeight, tFood, tWeb, tYoutube;
+    private TextView tName, tQuote, tHeight, tWeight, tFood, tWeb;
+    private ImageButton btnYoutube;
     private ImageView tImage;
     SharedPreferences sharedPref;
     Context context;
@@ -55,6 +63,18 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+        btnYoutube = view.findViewById(R.id.btnYoutube);
+        btnYoutube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(youtube));
+                startActivity(i);
+                //Toast.makeText(getActivity(), "pressed", Toast.LENGTH_LONG).show();
+            }
+        });
+
         tName = view.findViewById(R.id.tName);
         tQuote = view.findViewById(R.id.tQuote);
         tHeight = view.findViewById(R.id.tHeight);
@@ -62,7 +82,6 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
         tFood = view.findViewById(R.id.tFood);
         tWeb = view.findViewById(R.id.tWeb);
         tImage = view.findViewById(R.id.tImg);
-        tYoutube = view.findViewById(R.id.tYoutube);
          if (sharedPref != null) {
         getChanges();
           }
@@ -85,7 +104,7 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
                 tHeight.setText(height.toString());
                 tWeight.setText(weight.toString());
                 tWeb.setText(website.toString());
-                tYoutube.setText(youtube.toString());
+
 
                 Picasso.with(getActivity())
                         .load(img)

@@ -3,7 +3,6 @@ package com.example.tae.myufc_app.main_events.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,7 +85,7 @@ public class NewsTab_Adapter extends RecyclerView.Adapter<NewsTab_Adapter.MyView
             super(itemView);
 
             tName = itemView.findViewById(R.id.tName);
-            tDate = itemView.findViewById(R.id.tDate);
+            tDate = itemView.findViewById(R.id.tWins);
             tAuthor = itemView.findViewById(R.id.tAuthor);
             tImage = itemView.findViewById(R.id.tImgView);
 

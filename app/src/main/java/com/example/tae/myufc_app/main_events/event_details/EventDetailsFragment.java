@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tae.myufc_app.R;
@@ -37,6 +38,8 @@ implements IEventsMvpView{
 
     private int id;
     SharedPreferences sharedPref;
+    private String name;
+    private TextView tNameText;
 
     private RecyclerView recyclerView;
     private EventsImpl<EventDetailsFragment> eventDetailsFragmentPresenter;
@@ -64,7 +67,12 @@ implements IEventsMvpView{
         super.onViewCreated(view, savedInstanceState);
         sharedPref = getActivity().getSharedPreferences("EventDetails", Context.MODE_PRIVATE);
 
+        name = sharedPref.getString("event_name", null);
+        tNameText = view.findViewById(R.id.tNameText);
+        tNameText.setText(name);
+
         id = sharedPref.getInt("event_id", 0);
+
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 

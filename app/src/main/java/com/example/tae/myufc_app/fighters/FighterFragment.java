@@ -40,8 +40,7 @@ public class FighterFragment extends Fragment {
 
         TabLayout tabLayout = view.findViewById(R.id.tablayout);
         tabLayout.addTab(tabLayout.newTab().setText("Title Holders"));
-        tabLayout.addTab(tabLayout.newTab().setText("All Fighters"));
-        tabLayout.addTab(tabLayout.newTab().setText("Stats"));
+        tabLayout.addTab(tabLayout.newTab().setText("Fighters List"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = view.findViewById(R.id.pager);

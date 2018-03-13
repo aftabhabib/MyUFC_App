@@ -23,6 +23,7 @@ public class EventsDetails_Adapter extends RecyclerView.Adapter<EventsDetails_Ad
     private Context applicationContext;
     private int row;
     private List<EventsDetails> result;
+    private String name;
 
     public EventsDetails_Adapter(Context applicationContext, List<EventsDetails> result, int row) {
         this.applicationContext = applicationContext;
@@ -37,6 +38,7 @@ public class EventsDetails_Adapter extends RecyclerView.Adapter<EventsDetails_Ad
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+
 
         holder.tName1.setText(result.get(position).getFighter1LastName());
         holder.tName2.setText(result.get(position).getFighter2LastName());
@@ -143,7 +145,7 @@ public class EventsDetails_Adapter extends RecyclerView.Adapter<EventsDetails_Ad
             tName2 = itemView.findViewById(R.id.tName2);
             tImgViewF1 = itemView.findViewById(R.id.tImgView);
             tImgViewF2 = itemView.findViewById(R.id.tImgViewF2);
-            tRecord1 = itemView.findViewById(R.id.tDate);
+            tRecord1 = itemView.findViewById(R.id.tWins);
             tRecord2 = itemView.findViewById(R.id.f2_record);
             tHeight1 = itemView.findViewById(R.id.f1_height);
             tHeight2 = itemView.findViewById(R.id.f2_height);

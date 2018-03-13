@@ -45,10 +45,11 @@ public class EventsTab_Adapter extends RecyclerView.Adapter<EventsTab_Adapter.My
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        holder.tName.setText(result.get(position).getBaseTitle());
+
+        holder.tName.setText(result.get(position).getBaseTitle() + "\n" + result.get(position).getArena());
         holder.tTitle.setText(result.get(position).getTitleTagLine());
-        holder.tDate.setText("Date: " + result.get(position).getEndEventDategmt().substring(0, 10));
-        holder.tTime.setText("Time: " + result.get(position).getEndEventDategmt().substring(12, 16) + "pm");
+        holder.tDate.setText("Date: " + result.get(position).getEventDategmt().substring(0, 10));
+        holder.tTime.setText("Time: " + result.get(position).getEventDategmt().substring(12, 16) + "pm");
 
         Context context = holder.tImgView.getContext();
 
@@ -88,7 +89,7 @@ public class EventsTab_Adapter extends RecyclerView.Adapter<EventsTab_Adapter.My
 
             tName = itemView.findViewById(R.id.tName);
             tImgView = itemView.findViewById(R.id.tImgView);
-            tDate = itemView.findViewById(R.id.tDate);
+            tDate = itemView.findViewById(R.id.tWins);
             tTitle = itemView.findViewById(R.id.tTitle);
             tTime = itemView.findViewById(R.id.tTime);
 
@@ -97,12 +98,14 @@ public class EventsTab_Adapter extends RecyclerView.Adapter<EventsTab_Adapter.My
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
                     int id = result.get(pos).getId();
+                    String name = (result.get(pos).getBaseTitle() + "\n" + result.get(pos).getArena());
 
 
                     if (pos != RecyclerView.NO_POSITION) {
                         SharedPreferences sharedPref = applicationContext.getSharedPreferences("EventDetails", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putInt("event_id", id);
+                        editor.putString("event_name", name);
                         editor.commit();
 
 

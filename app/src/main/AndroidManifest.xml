@@ -28,7 +28,8 @@
         <activity android:name=".more_ufc.MediaTab_Main" />
         <activity android:name=".main_events.NewsDetail_Activity" />
         <activity android:name=".buy_tickets.buy_tickets_activity" />
-        <activity android:name=".live_stream.live_stream_activity"></activity>
+        <activity android:name=".live_stream.live_stream_activity" />
+        <activity android:name=".fighters.Fighters_View_Activity"></activity>
     </application>
 
 </manifest>

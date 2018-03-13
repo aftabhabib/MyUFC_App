@@ -39,7 +39,7 @@
 
 
         <TextView
-            android:id="@+id/tDate"
+            android:id="@+id/tWins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -160,7 +160,7 @@
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/f2_record"
-            app:layout_constraintStart_toEndOf="@+id/tDate"
+            app:layout_constraintStart_toEndOf="@+id/tWins"
             app:layout_constraintTop_toBottomOf="@+id/tTitle" />
 
         <TextView
