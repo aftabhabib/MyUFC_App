@@ -2,6 +2,7 @@ package com.example.tae.myufc_app.data.network;
 
 import com.example.tae.myufc_app.data.network.model.Events;
 import com.example.tae.myufc_app.data.network.model.EventsDetails;
+import com.example.tae.myufc_app.data.network.model.Fighters;
 import com.example.tae.myufc_app.data.network.model.Medium;
 import com.example.tae.myufc_app.data.network.model.News;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
@@ -50,8 +51,5 @@ public class AppApiHelper implements IApiHelper{
 
     public Observable<List<TitleHolders>> getTitleHolders() { return iRequestInterface.getTitleHolders();}
 
-    //@Override
-  //  public Observable<OctagonGirl> getOctagonGirlDetail(int id) {
-   //     return iRequestInterface.getOctagonGirlDetail(id);
-  //  }
+    public Observable<List<Fighters>> getFighters() { return iRequestInterface.getFighters();}
 }

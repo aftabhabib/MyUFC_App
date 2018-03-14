@@ -2,6 +2,7 @@ package com.example.tae.myufc_app.data.network;
 
 import com.example.tae.myufc_app.data.network.model.Events;
 import com.example.tae.myufc_app.data.network.model.EventsDetails;
+import com.example.tae.myufc_app.data.network.model.Fighters;
 import com.example.tae.myufc_app.data.network.model.Medium;
 import com.example.tae.myufc_app.data.network.model.News;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
@@ -29,5 +30,5 @@ public interface IApiHelper {
 
     Observable<List<TitleHolders>> getTitleHolders();
 
-   // Observable<OctagonGirl> getOctagonGirlDetail(int id);
+   Observable<List<Fighters>> getFighters();
 }

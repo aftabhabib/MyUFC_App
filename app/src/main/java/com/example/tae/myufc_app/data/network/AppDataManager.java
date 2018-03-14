@@ -3,6 +3,7 @@ package com.example.tae.myufc_app.data.network;
 
 import com.example.tae.myufc_app.data.network.model.Events;
 import com.example.tae.myufc_app.data.network.model.EventsDetails;
+import com.example.tae.myufc_app.data.network.model.Fighters;
 import com.example.tae.myufc_app.data.network.model.Medium;
 import com.example.tae.myufc_app.data.network.model.News;
 import com.example.tae.myufc_app.data.network.model.OctagonGirl;
@@ -25,10 +26,6 @@ public class AppDataManager implements DataManager{
         iApiHelper = new AppApiHelper();
     }
 
-  //  @Override
- //   public Observable<OctagonGirl> getOctagonGirlDetail(int id){
-  //      return iApiHelper.getOctagonGirlDetail(id);
-  //  }
     @Override
     public Observable<List<OctagonGirl>> getOctagonGirl() {
         return iApiHelper.getOctagonGirl();
@@ -43,5 +40,7 @@ public class AppDataManager implements DataManager{
     public Observable<List<News>> getNews() { return iApiHelper.getNews();}
 
     public Observable<List<TitleHolders>> getTitleHolders() { return iApiHelper.getTitleHolders();}
+
+    public Observable<List<Fighters>> getFighters() { return iApiHelper.getFighters();}
 
 }

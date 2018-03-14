@@ -67,7 +67,7 @@ public class EventsDetails_Adapter extends RecyclerView.Adapter<EventsDetails_Ad
         holder.tHeight2.setText(result.get(position).getFighter2height().toString() + "cm");
 
         if (result.get(position).getFighter1weight() != null) {
-            holder.tWeight1.setText(result.get(position).getFighter1weight().toString() + "kg");
+            holder.tWeight1.setText(result.get(position).getFighter1weight().toString() + "lb");
         }
 
         else if (result.get(position).getFighter1weight() == null)
@@ -76,7 +76,7 @@ public class EventsDetails_Adapter extends RecyclerView.Adapter<EventsDetails_Ad
         }
 
         if (result.get(position).getFighter2weight() != null) {
-            holder.tWeight2.setText(result.get(position).getFighter2weight().toString() + "kg");
+            holder.tWeight2.setText(result.get(position).getFighter2weight().toString() + "lb");
         }
 
         else if (result.get(position).getFighter2weight() == null)

@@ -7,19 +7,19 @@
         <item
             android:id="@+id/itm_events"
             android:icon="@drawable/ic_event_black_24dp"
-            android:title="Main Events &amp; News" />
+            android:title="@string/MainEventsNews" />
         <item
             android:id="@+id/itm_media"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Media and Videos"/>
+            android:title="@string/MediaVideo"/>
         <item
             android:id="@+id/itm_watch_live"
             android:icon="@drawable/ic_live_tv_black_24dp"
-            android:title="Watch Live Stream" />
+            android:title="@string/WatchLive" />
         <item
             android:id="@+id/itm_fighters"
             android:icon="@drawable/ic_people_outline_black_24dp"
-            android:title="MMA Fighters" />
+            android:title="@string/MMAFighters" />
     </group>
 
     <item android:title="More UFC">
@@ -27,12 +27,12 @@
             <item
                 android:id="@+id/itm_buytickets"
                 android:icon="@drawable/ic_style_black_24dp"
-                android:title="Buy Tickets" />
+                android:title="@string/buyTickets" />
 
             <item
                 android:id="@+id/itm_OctagonGirls"
                 android:icon="@drawable/ic_whatshot_black_24dp"
-                android:title="Octagon Girls" />
+                android:title="@string/octagonGirls" />
         </menu>
     </item>
 

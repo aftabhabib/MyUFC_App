@@ -3,23 +3,19 @@ package com.example.tae.myufc_app.octagon_girls.octagon_girls_details;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.tae.myufc_app.MyApp;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.ui.base.BaseFragment;
 import com.squareup.picasso.Picasso;
@@ -34,7 +30,7 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
     //private int id;
     private String name, height, weight, food, quote, website, img, youtube;
     private TextView tName, tQuote, tHeight, tWeight, tFood;
-    private ImageButton btnYoutube;
+    private ImageButton btnYoutube, btnWeb;
     private ImageView tImage;
     SharedPreferences sharedPref;
     Context context;
@@ -64,17 +60,43 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
 
 
         btnYoutube = view.findViewById(R.id.btnYoutube);
-        btnYoutube.setImageResource(R.drawable.ic_launcher_background);
-        btnYoutube.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnYoutube.setImageResource(R.drawable.youtube_logo);
 
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(youtube));
-                startActivity(i);
-                //Toast.makeText(getActivity(), "pressed", Toast.LENGTH_LONG).show();
-            }
-        });
+            btnYoutube.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (youtube != "") {
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(youtube));
+                        startActivity(i);
+                    }
+                    else
+                    {
+                        Toast.makeText(getActivity(), "No youtube link found!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+        btnWeb = view.findViewById(R.id.btnWeb);
+        btnWeb.setImageResource(R.drawable.web_logo);
+
+
+            btnWeb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (website != "") {
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(website));
+                        startActivity(i);
+                    }
+                    else
+                    {
+                        Toast.makeText(getActivity(), "No website link found!", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
 
         tName = view.findViewById(R.id.tName);
         tQuote = view.findViewById(R.id.tQuote);

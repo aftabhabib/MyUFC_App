@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.AppDataManager;
+import com.example.tae.myufc_app.data.network.model.Fighters;
 import com.example.tae.myufc_app.data.network.model.TitleHolders;
 import com.example.tae.myufc_app.fighters.adapter.TitleHolder_Adapter;
 import com.example.tae.myufc_app.fighters.mvp.FightersImpl;
@@ -77,6 +78,11 @@ implements IFighterMvpView{
 
     @Override
     public void onFetcDataError(String error) {
+
+    }
+
+    @Override
+    public void onFetchDataSuccessFighters(List<Fighters> fighters) {
 
     }
 }

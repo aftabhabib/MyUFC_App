@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UFC Official</string>
+    <string name="mediavideos">Medios Y videos</string>
+    <string name="Record">GRABAR</string>
+    <string name="HEIGHT">ALTURA</string>
+    <string name="WEIGHT">PESO</string>
+    <string name="REACH">ALCANZAR</string>
+    <string name="api_retry_error">Por favor, intenta de nuevo!</string>
+    <string name="connection_error">Conexión a Internet perdida!</string>
+    <string name="api_default_error">Algo malo paso!</string>
+    <string name="some_error">Ocurrió algún error!</string>
+    <string name="MediaVideo">Medios y videos</string>
+    <string name="WatchLive">Ver transmisión en vivo</string>
+    <string name="MMAFighters">Combatientes de MMA</string>
+    <string name="buyTickets">Comprar boletos</string>
+    <string name="octagonGirls">Niñas octágono</string>
+    <string name="MainEventsNews">Eventos principales &amp; Noticias</string>
+</resources>
