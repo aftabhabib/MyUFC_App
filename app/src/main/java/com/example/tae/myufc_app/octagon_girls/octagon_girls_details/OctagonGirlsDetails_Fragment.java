@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.ui.base.BaseFragment;
 import com.squareup.picasso.Picasso;
 
+import butterknife.BindView;
+
 import static android.content.Context.MODE_PRIVATE;
 
 /**
@@ -28,6 +31,16 @@ import static android.content.Context.MODE_PRIVATE;
 public class OctagonGirlsDetails_Fragment extends BaseFragment {
 
     //private int id;
+    /**
+     * adding bindview for recyclyerview
+     */
+
+    @BindView(R.id.tName) TextView tName;
+    @BindView(R.id.tName) TextView tName;
+    @BindView(R.id.tName) TextView tName;
+    @BindView(R.id.tName) TextView tName;
+    @BindView(R.id.tName) TextView tName;
+
     private String name, height, weight, food, quote, website, img, youtube;
     private TextView tName, tQuote, tHeight, tWeight, tFood;
     private ImageButton btnYoutube, btnWeb;

@@ -29,6 +29,7 @@ import com.example.tae.myufc_app.ui.utils.rx.AppSchedulerProvider;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
@@ -37,8 +38,11 @@ import io.reactivex.disposables.CompositeDisposable;
 public class AllFightersTab_Fragment extends BaseFragment
 implements IFighterMvpView {
 
+    /**
+     * adding bindview for recyclyerview
+     */
+    @BindView(R.id.recycler) RecyclerView recyclerView;
 
-    private RecyclerView recyclerView;
     private FightersImpl<AllFightersTab_Fragment> fightersPresenter;
     Fighters_Adapter fighters_adapter;
     List<Fighters> fightersList;
@@ -69,7 +73,10 @@ implements IFighterMvpView {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = view.findViewById(R.id.recycler);
+        /**
+         * setting layout for the recycler view
+         * creating the request to irequest interface
+         */
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         fightersPresenter.loadFighters();

@@ -27,6 +27,8 @@ import com.example.tae.myufc_app.ui.utils.rx.AppSchedulerProvider;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
@@ -36,12 +38,15 @@ public class EventDetailsFragment extends BaseFragment
 implements IEventsMvpView{
 
 
+    /**
+     * initiating objects and butterknife
+     */
     private int id;
     SharedPreferences sharedPref;
     private String name;
-    private TextView tNameText;
+    @BindView(R.id.tNameText) TextView tNameText;
+    @BindView(R.id.recycler) RecyclerView recyclerView;
 
-    private RecyclerView recyclerView;
     private EventsImpl<EventDetailsFragment> eventDetailsFragmentPresenter;
 
     public EventDetailsFragment() {
@@ -52,7 +57,9 @@ implements IEventsMvpView{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+/**
+ * initiating the presenter and attaching this view to the presenter
+ */
         eventDetailsFragmentPresenter = new EventsImpl<>(new AppDataManager(),
             new AppSchedulerProvider(), new CompositeDisposable());
 
@@ -65,17 +72,21 @@ implements IEventsMvpView{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        /**
+         * initiating shared preferences to get the event name
+         */
         sharedPref = getActivity().getSharedPreferences("EventDetails", Context.MODE_PRIVATE);
 
         name = sharedPref.getString("event_name", null);
-        tNameText = view.findViewById(R.id.tNameText);
         tNameText.setText(name);
 
         id = sharedPref.getInt("event_id", 0);
-
-        recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        /**
+         * presenter to make irequest interface and passing the Id
+         */
         eventDetailsFragmentPresenter.loadEventsDetails(id);
 
     }
@@ -91,6 +102,9 @@ implements IEventsMvpView{
 
     }
 
+    /**
+     * on success then set the adapter for the recycler view
+     */
     @Override
     public void onFetchDataSuccessDetails(List<EventsDetails> eventsDetails) {
        // Toast.makeText(getActivity().getApplicationContext(), "the id is: " + eventsDetails.get(0).getFighter1FirstName(), Toast.LENGTH_LONG).show();
