@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "929788644738",
+    "firebase_url": "https://ufcpp-96270.firebaseio.com",
+    "project_id": "ufcpp-96270",
+    "storage_bucket": "ufcpp-96270.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929788644738:android:dc8de8fec92437e7",
+        "android_client_info": {
+          "package_name": "com.example.tae.myufc_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929788644738-31qhnqscg109k0qtn8nkpss1or4jh3vm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe3PA2mZjzwDRvnjlb-3K9rIO5ctItVuA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
