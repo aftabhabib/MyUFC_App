@@ -65,6 +65,7 @@ public class NewsDetail_Activity extends AppCompatActivity {
     webView.loadUrl(urlPath);
     webView.setHorizontalScrollBarEnabled(true);
     webView.getSettings().setLoadsImagesAutomatically(true);
+    webView.getSettings().setJavaScriptEnabled(true);
     //webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
     webView.getSettings().setBuiltInZoomControls(true);
     }
