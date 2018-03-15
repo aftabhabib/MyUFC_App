@@ -1,9 +1,6 @@
 package com.example.tae.myufc_app;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,24 +15,18 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.example.tae.myufc_app.data.local.realm_database.controller.RealmHelper;
-import com.example.tae.myufc_app.data.local.realm_database.model.TitleHoldersRealm;
+import com.example.tae.myufc_app.local_realm.controller.RealmHelper;
+import com.example.tae.myufc_app.local_realm.model.TitleHoldersRealm;
 import com.example.tae.myufc_app.fighters.FighterFragment;
 import com.example.tae.myufc_app.buy_tickets.buy_tickets_activity;
-import com.example.tae.myufc_app.fighters.adapter.TitleHolder_Adapter_Realm;
 import com.example.tae.myufc_app.live_stream.live_stream_activity;
 import com.example.tae.myufc_app.main_events.MainEventsFragment;
 import com.example.tae.myufc_app.more_ufc.MoreUFCFragment;
 import com.example.tae.myufc_app.octagon_girls.octagon_girls_tab.OctagonGirlsFragment;
-import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 
 import java.util.ArrayList;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity

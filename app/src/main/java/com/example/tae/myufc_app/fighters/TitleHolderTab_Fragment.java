@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.tae.myufc_app.MainActivity;
 import com.example.tae.myufc_app.R;
-import com.example.tae.myufc_app.data.local.realm_database.controller.RealmHelper;
+import com.example.tae.myufc_app.local_realm.controller.RealmHelper;
 import com.example.tae.myufc_app.data.network.AppDataManager;
 import com.example.tae.myufc_app.data.network.model.Fighters;
 import com.example.tae.myufc_app.data.network.model.TitleHolders;

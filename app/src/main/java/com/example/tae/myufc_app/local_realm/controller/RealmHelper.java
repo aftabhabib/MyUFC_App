@@ -1,6 +1,6 @@
-package com.example.tae.myufc_app.data.local.realm_database.controller;
+package com.example.tae.myufc_app.local_realm.controller;
 
-import com.example.tae.myufc_app.data.local.realm_database.model.TitleHoldersRealm;
+import com.example.tae.myufc_app.local_realm.model.TitleHoldersRealm;
 
 import java.util.ArrayList;
 

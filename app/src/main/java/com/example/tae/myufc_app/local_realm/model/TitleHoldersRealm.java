@@ -1,4 +1,4 @@
-package com.example.tae.myufc_app.data.local.realm_database.model;
+package com.example.tae.myufc_app.local_realm.model;
 
 import io.realm.RealmObject;
 

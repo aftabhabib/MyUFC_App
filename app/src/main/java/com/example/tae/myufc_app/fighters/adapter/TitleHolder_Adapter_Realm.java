@@ -9,11 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tae.myufc_app.MyApp;
 import com.example.tae.myufc_app.R;
-import com.example.tae.myufc_app.data.local.realm_database.model.TitleHoldersRealm;
-
-import com.squareup.picasso.Picasso;
+import com.example.tae.myufc_app.local_realm.model.TitleHoldersRealm;
 
 import java.util.List;
 
