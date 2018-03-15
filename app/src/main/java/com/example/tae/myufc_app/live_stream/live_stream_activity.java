@@ -4,6 +4,7 @@ import android.net.http.SslError;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
@@ -12,9 +13,14 @@ import android.webkit.WebViewClient;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.service.ApiList;
 
+import butterknife.BindView;
+
 public class live_stream_activity extends AppCompatActivity {
 
-    private WebView webView;
+    /**
+     * adding bindview for webview
+     */
+    @BindView(R.id.webView) WebView webView;
     private String urlPath;
 
 

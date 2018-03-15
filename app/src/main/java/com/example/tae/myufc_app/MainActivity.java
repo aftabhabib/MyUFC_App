@@ -1,5 +1,7 @@
 package com.example.tae.myufc_app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,21 +15,40 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.tae.myufc_app.data.local.realm_database.controller.RealmHelper;
+import com.example.tae.myufc_app.data.local.realm_database.model.TitleHoldersRealm;
 import com.example.tae.myufc_app.fighters.FighterFragment;
 import com.example.tae.myufc_app.buy_tickets.buy_tickets_activity;
+import com.example.tae.myufc_app.fighters.adapter.TitleHolder_Adapter_Realm;
 import com.example.tae.myufc_app.live_stream.live_stream_activity;
 import com.example.tae.myufc_app.main_events.MainEventsFragment;
 import com.example.tae.myufc_app.more_ufc.MoreUFCFragment;
 import com.example.tae.myufc_app.octagon_girls.octagon_girls_tab.OctagonGirlsFragment;
+import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
+
+import java.util.ArrayList;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    /**
+     * main activity for the app
+     * responsible for the nav and opening fragments
+     */
     static Bundle savedInstanceState;
     private static FragmentManager fragmentManager;
+
+    private Realm realm;
+    private static RealmHelper realmHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +72,14 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        loadMainEventsFragment();
+       // loadMainEventsFragment();
+        callService();
 
+        /**
+         * realm database init
+         */
+
+        initRealm();
     }
 
     @Override
@@ -73,6 +100,30 @@ public class MainActivity extends AppCompatActivity
             }
     }
 
+    /**
+     * creating a realm object and creating calls for realm
+    *
+     */
+
+    private void initRealm(){
+        realm = Realm.getDefaultInstance();
+        realmHelper = new RealmHelper(realm);
+    }
+
+    public static ArrayList<TitleHoldersRealm> getRealmDatabase(){
+        Log.i("realm db", String.valueOf(realmHelper.getTitleHoldersDB().size()));
+        return realmHelper.getTitleHoldersDB();
+    }
+
+    public static void deleteRealmDatabase(){
+        realmHelper.deleteRealmData();
+    }
+
+    public static void saveRealm (String name, int wins, int draws, int losses){
+        TitleHoldersRealm titleHoldersRealm = new TitleHoldersRealm(name, wins, draws, losses);
+        realmHelper.storeData(titleHoldersRealm);
+        Log.i("realm database", String.valueOf(realmHelper.getTitleHoldersDB().size()));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -135,6 +186,52 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void callService()
+    {
+        ReactiveNetwork.observeInternetConnectivity()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean isConnectedToInternet) throws Exception {
+                        if (isConnectedToInternet)
+                        {
+                            loadMainEventsFragment();
+
+                        }
+                        else
+                        {
+                            AlertNetwork();
+
+                        }
+                    }
+                });
+    }
+
+    public void AlertNetwork()
+    {
+        AlertDialog.Builder a_builder = new AlertDialog.Builder(MyApp.getInstance());
+        a_builder.setMessage("There is no network connected.. Please make sure you are connected to the internet")
+                .setCancelable(false)
+                .setPositiveButton("Close the App", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                }).setNegativeButton("Continue using the App with cached data", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+                Toast.makeText(MyApp.getInstance(), "Loading from cache storage..", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        AlertDialog alert = a_builder.create();
+        alert.setTitle("Connection status");
+        alert.show();
     }
 
     public void loadFighterFragment() {

@@ -22,6 +22,7 @@ import com.example.tae.myufc_app.ui.utils.rx.AppSchedulerProvider;
 
 import java.util.List;
 
+import butterknife.BindView;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
@@ -30,7 +31,11 @@ import io.reactivex.disposables.CompositeDisposable;
 public class MediaVideosTab_Fragment extends BaseFragment
         implements IMediaMvpView {
 
-    private RecyclerView recyclerView;
+    /**
+     * adding bindview for recyclyerview
+     */
+
+    @BindView(R.id.recycler) RecyclerView recyclerView;
     private MediaImpl<MediaVideosTab_Fragment> mediaVideosFragmentPresenter;
 
     public MediaVideosTab_Fragment() {

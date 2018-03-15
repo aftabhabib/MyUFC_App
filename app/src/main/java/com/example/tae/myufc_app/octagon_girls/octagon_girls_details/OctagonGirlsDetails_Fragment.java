@@ -30,21 +30,20 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class OctagonGirlsDetails_Fragment extends BaseFragment {
 
-    //private int id;
     /**
-     * adding bindview for recyclyerview
+     * adding bindview for recyclyerview and other variable parameters
      */
 
     @BindView(R.id.tName) TextView tName;
-    @BindView(R.id.tName) TextView tName;
-    @BindView(R.id.tName) TextView tName;
-    @BindView(R.id.tName) TextView tName;
-    @BindView(R.id.tName) TextView tName;
+    @BindView(R.id.tQuote) TextView tQuote;
+    @BindView(R.id.tHeight) TextView tHeight;
+    @BindView(R.id.tWeight) TextView tWeight;
+    @BindView(R.id.tFood) TextView tFood;
+    @BindView(R.id.btnWeb) ImageButton btnWeb;
+    @BindView(R.id.btnYoutube) ImageButton btnYoutube;
+    @BindView(R.id.tImg) ImageView tImage;
 
     private String name, height, weight, food, quote, website, img, youtube;
-    private TextView tName, tQuote, tHeight, tWeight, tFood;
-    private ImageButton btnYoutube, btnWeb;
-    private ImageView tImage;
     SharedPreferences sharedPref;
     Context context;
 

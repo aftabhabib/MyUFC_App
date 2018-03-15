@@ -38,6 +38,7 @@ implements IFighterPresenter<V>{
                             @Override
                             public void accept(List<TitleHolders> titleHolders) throws Exception {
                                 getMvpView().onFetchDataSuccess(titleHolders);
+
                             }
                         }, new Consumer<Throwable>() {
                             @Override

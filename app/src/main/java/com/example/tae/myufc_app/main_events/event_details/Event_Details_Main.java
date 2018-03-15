@@ -16,6 +16,11 @@ public class Event_Details_Main extends AppCompatActivity {
 
     FragmentManager fragmentManager;
 
+    /**
+     * this activity is to load the event details fragment
+     * @param savedInstanceState
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +28,9 @@ public class Event_Details_Main extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
+        /**
+         * adds the action support bar
+         */
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);

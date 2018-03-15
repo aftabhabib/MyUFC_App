@@ -3,6 +3,9 @@ package com.example.tae.myufc_app;
 import android.app.Application;
 import android.content.Context;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 /**
  * Created by kalpesh on 08/02/2018.
  */
@@ -24,13 +27,19 @@ public class MyApp extends Application {
         super.onCreate();
         context = getApplicationContext();
 
-//        Realm.init(getApplicationContext());
-//        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
-//                .name("DayOutDatabase")
-//                .schemaVersion(1)
-//                .deleteRealmIfMigrationNeeded()
-//                .build();
-//        Realm.setDefaultConfiguration(realmConfiguration);
+        configRealm();
+
+    }
+
+    public void configRealm()
+    {
+        Realm.init(this);
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
+                .name("UFC_app")
+                .schemaVersion(1)
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(realmConfiguration);
     }
 
 

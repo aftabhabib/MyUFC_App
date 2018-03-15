@@ -21,12 +21,17 @@ import com.example.tae.myufc_app.ui.utils.rx.AppSchedulerProvider;
 
 import java.util.List;
 
+import butterknife.BindView;
 import io.reactivex.disposables.CompositeDisposable;
 
 public class EventsTab_Fragment extends BaseFragment
 implements IEventsMvpView{
 
-    private RecyclerView recyclerView;
+    /**
+     * adding bindview for recyclyerview
+     */
+
+    @BindView(R.id.recycler) RecyclerView recyclerView;
     private EventsImpl<EventsTab_Fragment> eventsTabfragmentPresenter;
 
     public EventsTab_Fragment() {
