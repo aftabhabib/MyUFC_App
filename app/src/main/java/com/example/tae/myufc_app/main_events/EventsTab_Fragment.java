@@ -1,5 +1,7 @@
 package com.example.tae.myufc_app.main_events;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -7,7 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.tae.myufc_app.MainActivity;
 import com.example.tae.myufc_app.R;
 import com.example.tae.myufc_app.data.network.AppDataManager;
 import com.example.tae.myufc_app.data.network.model.Events;
@@ -18,11 +22,15 @@ import com.example.tae.myufc_app.main_events.mvp.EventsImpl;
 import com.example.tae.myufc_app.main_events.mvp.IEventsMvpView;
 import com.example.tae.myufc_app.ui.base.BaseFragment;
 import com.example.tae.myufc_app.ui.utils.rx.AppSchedulerProvider;
+import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class EventsTab_Fragment extends BaseFragment
 implements IEventsMvpView{
@@ -66,8 +74,57 @@ implements IEventsMvpView{
 
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        callService();
 
-        eventsTabfragmentPresenter.loadEvents();
+    }
+
+    public void callService()
+    {
+        ReactiveNetwork.observeInternetConnectivity()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean isConnectedToInternet) throws Exception {
+                        if (isConnectedToInternet)
+                        {
+                            eventsTabfragmentPresenter.loadEvents();
+
+                        }
+                        else
+                        {
+                            AlertNetwork();
+
+                        }
+                    }
+                });
+    }
+
+    /**
+     * alert to tell user there is no internet, and in that case to get data from the cached storage
+     */
+    public void AlertNetwork()
+    {
+        AlertDialog.Builder a_builder = new AlertDialog.Builder(getActivity());
+        a_builder.setMessage("There is no network connected.. Please make sure you are connected to the internet")
+                .setCancelable(false)
+                .setPositiveButton("Close the App", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        getActivity().finish();
+                    }
+                }).setNegativeButton("Continue using the App with cached data", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+                Toast.makeText(getActivity(), "Loading from cache storage..", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        AlertDialog alert = a_builder.create();
+        alert.setTitle("Connection status");
+        alert.show();
     }
 
     @Override

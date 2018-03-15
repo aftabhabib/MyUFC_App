@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.tae.myufc_app.MainActivity;
 import com.example.tae.myufc_app.R;
+import com.example.tae.myufc_app.data.local.realm_database.controller.RealmHelper;
 import com.example.tae.myufc_app.data.network.AppDataManager;
 import com.example.tae.myufc_app.data.network.model.Fighters;
 import com.example.tae.myufc_app.data.network.model.TitleHolders;
@@ -34,12 +35,16 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+import io.realm.Realm;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TitleHolderTab_Fragment extends BaseFragment
 implements IFighterMvpView{
+
+    private Realm realm;
+    private static RealmHelper realmHelper;
 
     /**
      * adding bindview for recyclyerview
@@ -97,10 +102,6 @@ implements IFighterMvpView{
                         {
                             AlertNetwork();
 
-                            //if there is no internet connection then it will get from the realm backup
-                            //get data from realm backup
-                            //displayClassicMusicBackup();
-
                         }
                     }
                 });
@@ -108,8 +109,8 @@ implements IFighterMvpView{
 
     public void AlertNetwork()
     {
-        AlertDialog.Builder a_builder = new AlertDialog.Builder(getActivity());
-        a_builder.setMessage("There is no network connected.. Please make sure you are connected to the internet")
+        AlertDialog.Builder a_builder2 = new AlertDialog.Builder(getActivity());
+        a_builder2.setMessage("There is no network connected.. Please make sure you are connected to the internet")
                 .setCancelable(false)
                 .setPositiveButton("Close the App", new DialogInterface.OnClickListener() {
                     @Override
@@ -120,14 +121,24 @@ implements IFighterMvpView{
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.cancel();
-                Toast.makeText(getActivity(), "Loading from Realm Backup..", Toast.LENGTH_LONG).show();
-                recyclerView.setAdapter(new TitleHolder_Adapter_Realm(getActivity(),MainActivity.getRealmDatabase(),R.layout.titleholder_row));
+
+
+                if (MainActivity.getRealmDatabase().isEmpty())
+                {
+                    Toast.makeText(getActivity(), "No Realm backup found..", Toast.LENGTH_LONG).show();
+                }
+                else if (MainActivity.getRealmDatabase().size() > 0) {
+
+                        recyclerView.setAdapter(new TitleHolder_Adapter_Realm(getActivity(), MainActivity.getRealmDatabase(), R.layout.titleholder_row));
+                        Toast.makeText(getActivity(), "Loading from Realm Backup..", Toast.LENGTH_LONG).show();
+
+                }
 
             }
         });
 
-        AlertDialog alert = a_builder.create();
-        alert.setTitle("Connection status");
+        AlertDialog alert = a_builder2.create();
+        alert.setTitle("Defaulted to realm backup");
         alert.show();
     }
 
@@ -150,8 +161,9 @@ implements IFighterMvpView{
 
     @Override
     public void onFetchDataSuccess(List<TitleHolders> titleHoldersList) {
-        recyclerView.setAdapter(new TitleHolder_Adapter(getActivity().getApplicationContext(), titleHoldersList, R.layout.titleholder_row));
         DatabaseResults(titleHoldersList);
+        recyclerView.setAdapter(new TitleHolder_Adapter(getActivity().getApplicationContext(), titleHoldersList, R.layout.titleholder_row));
+
 
     }
 

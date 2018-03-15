@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-       // loadMainEventsFragment();
-        callService();
+
+        loadMainEventsFragment();
 
         /**
          * realm database init
@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity
 
         initRealm();
     }
+
 
     @Override
     public void onBackPressed() {
@@ -188,51 +189,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void callService()
-    {
-        ReactiveNetwork.observeInternetConnectivity()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Boolean>() {
-                    @Override
-                    public void accept(Boolean isConnectedToInternet) throws Exception {
-                        if (isConnectedToInternet)
-                        {
-                            loadMainEventsFragment();
-
-                        }
-                        else
-                        {
-                            AlertNetwork();
-
-                        }
-                    }
-                });
-    }
-
-    public void AlertNetwork()
-    {
-        AlertDialog.Builder a_builder = new AlertDialog.Builder(MyApp.getInstance());
-        a_builder.setMessage("There is no network connected.. Please make sure you are connected to the internet")
-                .setCancelable(false)
-                .setPositiveButton("Close the App", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
-                    }
-                }).setNegativeButton("Continue using the App with cached data", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-                Toast.makeText(MyApp.getInstance(), "Loading from cache storage..", Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-        AlertDialog alert = a_builder.create();
-        alert.setTitle("Connection status");
-        alert.show();
-    }
 
     public void loadFighterFragment() {
      //   if (savedInstanceState == null) {
