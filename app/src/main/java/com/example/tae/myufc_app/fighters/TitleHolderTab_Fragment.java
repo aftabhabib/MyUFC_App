@@ -99,7 +99,10 @@ implements IFighterMvpView{
                         }
                         else
                         {
-                            AlertNetwork();
+                            recyclerView.setAdapter(new TitleHolder_Adapter_Realm(getActivity(), MainActivity.getRealmDatabase(), R.layout.titleholder_row));
+                            Toast.makeText(getActivity(), "Loading from Realm Backup..", Toast.LENGTH_LONG).show();
+
+                            // AlertNetwork();
 
                         }
                     }
