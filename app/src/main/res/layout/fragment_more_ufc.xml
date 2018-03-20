@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tae.myufc_app.more_ufc.MoreUFCFragment">
+    tools:context="com.example.gemstudios.myufc_app.more_ufc.MoreUFCFragment">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tablayout"

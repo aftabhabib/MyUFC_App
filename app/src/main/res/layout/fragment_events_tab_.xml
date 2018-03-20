@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="50dp"
-    tools:context="com.example.tae.myufc_app.main_events.EventsTab_Fragment">
+    tools:context="com.example.gemstudios.myufc_app.main_events.EventsTab_Fragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"

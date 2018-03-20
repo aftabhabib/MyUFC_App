@@ -3,12 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="50dp"
-    tools:context="com.example.tae.myufc_app.fighters.AllFightersTab_Fragment">
+    tools:context="com.example.gemstudios.myufc_app.fighters.AllFightersTab_Fragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white" />
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-0870153753180861/5060233451"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="410dp"
+        android:layout_gravity="bottom|center">
+    </com.google.android.gms.ads.AdView>
 
 </FrameLayout>

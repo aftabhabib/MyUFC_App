@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tae.myufc_app.main_events.news_feed_tab.NewsDetails_Fragment">
+    tools:context="com.example.gemstudios.myufc_app.main_events.news_feed_tab.NewsDetails_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
