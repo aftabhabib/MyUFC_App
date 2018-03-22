@@ -15,19 +15,13 @@ import com.google.android.gms.ads.MobileAds;
 public class OctagonGirlsDetails_Main extends AppCompatActivity {
 
     FragmentManager fragmentManager;
-    private AdView mAdView;
-    private AdRequest adRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_octagon_girls_details__main);
 
-        MobileAds.initialize(MyApp.getInstance().getAppContext(), "ca-app-pub-0870153753180861~4982064606");
 
-        mAdView = findViewById(R.id.adView);
-        adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         fragmentManager = getSupportFragmentManager();
 
@@ -47,8 +41,7 @@ public class OctagonGirlsDetails_Main extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                adRequest = new AdRequest.Builder().build();
-                mAdView.loadAd(adRequest);
+
                 finish();
 
                 return true;

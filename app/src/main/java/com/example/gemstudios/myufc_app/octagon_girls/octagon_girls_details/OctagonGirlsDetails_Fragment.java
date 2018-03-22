@@ -16,8 +16,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gemstudios.myufc_app.MyApp;
 import com.example.gemstudios.myufc_app.R;
 import com.example.gemstudios.myufc_app.ui.base.BaseFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -41,6 +45,8 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
     @BindView(R.id.btnWeb) ImageButton btnWeb;
     @BindView(R.id.btnYoutube) ImageButton btnYoutube;
     @BindView(R.id.tImg) ImageView tImage;
+    private AdView mAdView;
+    private AdRequest adRequest;
 
     private String name, height, weight, food, quote, website, img, youtube;
     SharedPreferences sharedPref;
@@ -69,7 +75,11 @@ public class OctagonGirlsDetails_Fragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        MobileAds.initialize(MyApp.getInstance().getAppContext(), "ca-app-pub-0870153753180861~4982064606");
 
+        mAdView = view.findViewById(R.id.adView);
+        adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         btnYoutube = view.findViewById(R.id.btnYoutube);
         btnYoutube.setImageResource(R.drawable.youtube_logo);
 

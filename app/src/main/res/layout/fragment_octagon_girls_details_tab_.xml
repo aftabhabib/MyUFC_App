@@ -8,8 +8,20 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="50dp">
-
+        android:paddingTop="30dp">
+        
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="ca-app-pub-0870153753180861/5060233451"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="410dp"
+            android:layout_gravity="bottom|center">
+        </com.google.android.gms.ads.AdView>
 
         <TextView
             android:id="@+id/tHeight"
@@ -179,5 +191,14 @@
             app:layout_constraintStart_toEndOf="@+id/btnYoutube"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
+
     </android.support.constraint.ConstraintLayout>
+
+
+
+
+
 </ScrollView>
+
+
+

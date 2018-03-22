@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.gemstudios.myufc_app.MyApp;
 import com.example.gemstudios.myufc_app.R;
 import com.example.gemstudios.myufc_app.data.network.AppDataManager;
 import com.example.gemstudios.myufc_app.data.network.model.OctagonGirl;
@@ -18,6 +19,9 @@ import com.example.gemstudios.myufc_app.octagon_girls.mvp.IOctagonGirlMvpView;
 import com.example.gemstudios.myufc_app.octagon_girls.mvp.OctagonGirlImpl;
 import com.example.gemstudios.myufc_app.ui.base.BaseFragment;
 import com.example.gemstudios.myufc_app.ui.utils.rx.AppSchedulerProvider;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.List;
 
@@ -31,7 +35,8 @@ public class OctagonGirlsGalleryTab_Fragment extends BaseFragment
 
     private RecyclerView recyclerView;
     private OctagonGirlImpl<OctagonGirlsGalleryTab_Fragment> octagonGirlDetailFragment;
-
+    private AdView mAdView;
+    private AdRequest adRequest;
     public OctagonGirlsGalleryTab_Fragment() {
         // Required empty public constructor
     }
@@ -53,7 +58,11 @@ public class OctagonGirlsGalleryTab_Fragment extends BaseFragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        MobileAds.initialize(MyApp.getInstance().getAppContext(), "ca-app-pub-0870153753180861~4982064606");
 
+        mAdView = view.findViewById(R.id.adView);
+        adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
